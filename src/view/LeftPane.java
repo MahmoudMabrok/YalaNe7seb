@@ -26,7 +26,6 @@ public class LeftPane  extends VBox {
 
     public LeftPane() {
 
-       // user_name = new TextField("") ;
         btnAddUser = new Button("Add user ") ;
         addUserPane.getChildren().addAll(user_name , btnAddUser ) ;
 
@@ -40,7 +39,6 @@ public class LeftPane  extends VBox {
         setAlignment(Pos.CENTER);
         btnAddItem.setAlignment(Pos.CENTER);
 
-
         tfDescription.setPromptText("Items");
         tfPrice.setPromptText("Price");
         cbUser.setValue("Users");
@@ -48,15 +46,22 @@ public class LeftPane  extends VBox {
         cbUser.getItems().setAll(DbQueries.getAllUser()) ;
         cbUser.setMinWidth(150);
 
-
-
         getChildren().add(addUserPane);
         getChildren().addAll(tfDescription , tfPrice ,cbUser ,btnAddItem );
+
+        //actions
         btnAddUser.setOnAction(e->{
             String name = user_name.getText().toString() ;
             DbQueries.addUser(name);
-            System.out.println("added");
             cbUser.getItems().setAll(DbQueries.getAllUser()) ;
+        });
+        btnAddItem.setOnAction(e->{
+
+            String user = cbUser.getValue().toString() ;
+            String description = tfDescription.getText().toString() ;
+            double price  = Double.parseDouble(tfPrice.getText().toString()) ;
+            DbQueries.addItem(user , RightPane.items.size() , description , price);
+            RightPane.items.setAll(DbQueries.getAllItems());
         });
 
     }

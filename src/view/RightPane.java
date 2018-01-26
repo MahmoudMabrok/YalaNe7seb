@@ -1,5 +1,8 @@
 package view;
 
+import controllor.DbQueries;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -20,7 +23,10 @@ public class RightPane extends HBox {
     TableColumn<Item, String  > descCol = new TableColumn<>("Description") ;
     TableColumn<Item, Double > priceCol = new TableColumn<>("Price") ;
 
+  public  static    ObservableList<Item> items   ;
+
     public RightPane() {
+        items  = FXCollections.observableArrayList() ;
         // idCol.setMinWidth(50);
         idCol.setCellValueFactory(new PropertyValueFactory<Item, Integer>("id"));
         // userCol.setMinWidth(100);
@@ -35,6 +41,8 @@ public class RightPane extends HBox {
         priceCol.prefWidthProperty().bind(tableView.widthProperty().divide(4));
 
         tableView.getColumns().addAll(idCol , userCol , descCol , priceCol ) ;
+        items.setAll(DbQueries.getAllItems()) ;
+        tableView.getItems().setAll(items) ;
         getChildren().add(tableView ) ;
 
     }
