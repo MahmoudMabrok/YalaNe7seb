@@ -45,7 +45,7 @@ public class LeftPane  extends VBox {
         tfPrice.setPromptText("Price");
         cbUser.setValue("Users");
         cbUser.setMinWidth(150);
-      //  cbUser.getItems().addAll() ;
+        cbUser.getItems().setAll(DbQueries.getAllUser()) ;
         cbUser.setMinWidth(150);
 
 
@@ -56,6 +56,7 @@ public class LeftPane  extends VBox {
             String name = user_name.getText().toString() ;
             DbQueries.addUser(name);
             System.out.println("added");
+            cbUser.getItems().setAll(DbQueries.getAllUser()) ;
         });
 
     }

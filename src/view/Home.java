@@ -3,7 +3,10 @@ package view;
 import controllor.DbQueries;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -12,9 +15,16 @@ import javafx.stage.Stage;
  */
 public class Home extends Application  {
 
-     LeftPane lp  = new LeftPane();
-     RightPane rp  = new RightPane() ;
+  public   static   LeftPane lp  ; // public to be seen outside package
+   public  static RightPane rp  ;
 
+ public static Text status  ;
+
+    public Home() {
+        lp  = new LeftPane() ;
+        rp = new RightPane() ;
+        status = new Text() ;
+    }
 
     public static void main(String[] args) {
             launch(args);
@@ -23,11 +33,14 @@ public class Home extends Application  {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-      //  DbQueries.creatDb(); //create db
-        HBox panes = new HBox(25) ;
-        panes.getChildren().addAll(lp ,rp) ;
+       DbQueries.creatDb(); //create db
+        VBox root = new VBox(5) ;
 
-        Scene scene =new Scene(panes) ;
+        HBox panes = new HBox(25) ;
+        panes.getChildren().addAll(lp ,rp  ) ;
+
+        root.getChildren().addAll(panes , status ) ;
+        Scene scene =new Scene(root) ;
         primaryStage.setScene(scene);
         primaryStage.setTitle("YalaNe7eb");
         primaryStage.show();

@@ -77,14 +77,6 @@ public class DataBase {
 
 
        try {
-          /* st  = con.createStatement();
-
-           st.executeUpdate("insert into ITEM VALUES ("+id+
-                   ",'" + name +"'+" +
-                   ", '" +desc +"'," +
-                   "price )" ) ;
-           st.close();*/
-
            PreparedStatement ps =con.prepareStatement("insert into ITEM VALUES ( ?,?, ?,? )") ;
            ps.setInt(1,id);
            ps.setString(2 ,name );
@@ -100,7 +92,7 @@ public class DataBase {
        }
    }
 
-   public void addAll (ObservableList<Item> items ){
+  /* public void addAll (ObservableList<Item> items ){
        items.clear();
        try {
        st = con.createStatement() ;
@@ -120,7 +112,7 @@ public class DataBase {
        {
            System.out.println(s);
        }
-   }
+   }*/
    public ArrayList<String> getUsers (){
        ArrayList<String> us = new ArrayList<>() ;
 
