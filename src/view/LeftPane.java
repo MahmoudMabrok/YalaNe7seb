@@ -1,5 +1,6 @@
 package view;
 
+import controllor.DbQueries;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -15,17 +16,25 @@ import javafx.scene.layout.VBox;
 public class LeftPane  extends VBox {
 
     HBox addUserPane  = new HBox(5);
-    TextField user_name = new TextField() ;
-    Button btnAddUser = new Button("Add user ") ;
-    TextField tfDescription = new TextField() ;
-    TextField tfPrice  = new TextField() ;
-    ComboBox<String> cbUser = new ComboBox<>() ;
-    Button btnAddItem = new Button("AddItem ");
-
-
+    TextField user_name = new TextField("") ;
+    Button btnAddUser ;
+    TextField tfDescription ;
+    TextField tfPrice ;
+    ComboBox<String> cbUser ;
+    Button btnAddItem ;
 
 
     public LeftPane() {
+
+       // user_name = new TextField("") ;
+        btnAddUser = new Button("Add user ") ;
+        addUserPane.getChildren().addAll(user_name , btnAddUser ) ;
+
+        tfDescription = new TextField() ;
+        tfPrice = new TextField() ;
+        cbUser = new ComboBox<>() ;
+        btnAddItem = new Button("Add Item ") ;
+
         setSpacing(15);
         setPadding(new Insets(15));
         setAlignment(Pos.CENTER);
@@ -40,9 +49,14 @@ public class LeftPane  extends VBox {
         cbUser.setMinWidth(150);
 
 
-        addUserPane.getChildren().addAll(user_name,btnAddUser) ;
+
         getChildren().add(addUserPane);
         getChildren().addAll(tfDescription , tfPrice ,cbUser ,btnAddItem );
+        btnAddUser.setOnAction(e->{
+            String name = user_name.getText().toString() ;
+            DbQueries.addUser(name);
+            System.out.println("added");
+        });
 
     }
 }

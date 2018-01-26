@@ -1,5 +1,6 @@
 package view;
 
+import controllor.DbQueries;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
@@ -11,8 +12,8 @@ import javafx.stage.Stage;
  */
 public class Home extends Application  {
 
-    LeftPane lp  = new LeftPane();
-    RightPane rp  = new RightPane() ;
+     LeftPane lp  = new LeftPane();
+     RightPane rp  = new RightPane() ;
 
 
     public static void main(String[] args) {
@@ -22,6 +23,7 @@ public class Home extends Application  {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
+      //  DbQueries.creatDb(); //create db
         HBox panes = new HBox(25) ;
         panes.getChildren().addAll(lp ,rp) ;
 
