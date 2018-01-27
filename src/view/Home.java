@@ -9,6 +9,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.Date;
+
 /**
  * this is
  * Created by mo3tamed on 1/26/18.
@@ -24,6 +26,7 @@ public class Home extends Application  {
         lp  = new LeftPane() ;
         rp = new RightPane() ;
         status = new Text() ;
+
     }
 
     public static void main(String[] args) {

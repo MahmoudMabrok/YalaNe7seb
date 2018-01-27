@@ -22,6 +22,7 @@ public class RightPane extends HBox {
     TableColumn<Item, String  > userCol = new TableColumn<>("User") ;
     TableColumn<Item, String  > descCol = new TableColumn<>("Description") ;
     TableColumn<Item, Double > priceCol = new TableColumn<>("Price") ;
+    TableColumn<Item, String > dateCol = new TableColumn<>("Date") ;
 
   public  static    ObservableList<Item> items   ;
 
@@ -35,12 +36,15 @@ public class RightPane extends HBox {
         descCol.setCellValueFactory(new PropertyValueFactory<Item, String>("descrption"));
         // priceCol.setMinWidth(50);
         priceCol.setCellValueFactory(new PropertyValueFactory<Item, Double>("price"));
-        idCol.prefWidthProperty().bind(tableView.widthProperty().divide(4));
+
+        dateCol.setCellValueFactory(new PropertyValueFactory<Item, String>("date"));
+
+    /*    idCol.prefWidthProperty().bind(tableView.widthProperty().divide(4));
         userCol.prefWidthProperty().bind(tableView.widthProperty().divide(4));
         descCol.prefWidthProperty().bind(tableView.widthProperty().divide(4));
-        priceCol.prefWidthProperty().bind(tableView.widthProperty().divide(4));
+        priceCol.prefWidthProperty().bind(tableView.widthProperty().divide(4));*/
 
-        tableView.getColumns().addAll(idCol , userCol , descCol , priceCol ) ;
+        tableView.getColumns().addAll(idCol , userCol , descCol , priceCol ,dateCol ) ;
         items.setAll(DbQueries.getAllItems()) ;
         tableView.getItems().setAll(items) ;
         getChildren().add(tableView ) ;

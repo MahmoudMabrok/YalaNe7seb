@@ -12,16 +12,26 @@ public class Item {
     String descrption  ;
     double price ;
     String user ;
+    String date ;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public int getId() {
         return id;
     }
 
-    public Item(String descrption, double price, String user , int id ) {
+    public Item(String descrption, double price, String user , int id  , String date) {
         this.descrption = descrption;
         this.price = price;
         this.user = user;
       this.id = id  ;
+      this.date = date ;
     }
 
     public String getDescrption() {

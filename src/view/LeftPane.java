@@ -60,7 +60,7 @@ public class LeftPane  extends VBox {
             String user = cbUser.getValue().toString() ;
             String description = tfDescription.getText().toString() ;
             double price  = Double.parseDouble(tfPrice.getText().toString()) ;
-            DbQueries.addItem(user , RightPane.items.size() , description , price);
+            DbQueries.addItem(user , DbQueries.rowCount +1 , description , price);
             RightPane.items.setAll(DbQueries.getAllItems());
         });
 
