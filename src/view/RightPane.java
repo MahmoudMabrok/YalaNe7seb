@@ -17,7 +17,7 @@ import model.Item;
 public class RightPane extends HBox {
 
 
-    TableView<Item> tableView  = new TableView<>() ;
+   static TableView<Item> tableView  = new TableView<>() ;
     TableColumn< Item, Integer > idCol = new TableColumn<>("Id") ;
     TableColumn<Item, String  > userCol = new TableColumn<>("User") ;
     TableColumn<Item, String  > descCol = new TableColumn<>("Description") ;
@@ -27,6 +27,8 @@ public class RightPane extends HBox {
   public  static    ObservableList<Item> items   ;
 
     public RightPane() {
+        setStyle("-fx-border-color:aquamarine");
+
         items  = FXCollections.observableArrayList() ;
         // idCol.setMinWidth(50);
         idCol.setCellValueFactory(new PropertyValueFactory<Item, Integer>("id"));

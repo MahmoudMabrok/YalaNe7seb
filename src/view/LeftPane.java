@@ -26,6 +26,7 @@ public class LeftPane  extends VBox {
 
     public LeftPane() {
 
+        setStyle("-fx-background-color: chartreuse");
         btnAddUser = new Button("Add user ") ;
         addUserPane.getChildren().addAll(user_name , btnAddUser ) ;
 
@@ -62,6 +63,7 @@ public class LeftPane  extends VBox {
             double price  = Double.parseDouble(tfPrice.getText().toString()) ;
             DbQueries.addItem(user , DbQueries.rowCount +1 , description , price);
             RightPane.items.setAll(DbQueries.getAllItems());
+            RightPane.tableView.getItems().setAll(RightPane.items) ; 
         });
 
     }

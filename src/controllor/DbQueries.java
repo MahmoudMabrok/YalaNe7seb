@@ -22,7 +22,6 @@ public class DbQueries {
 
     public static void creatDb ()
     {
-        System.out.println("before created ");
         try
         {
             statement = DbConnection.getConnection().createStatement();
@@ -34,6 +33,19 @@ public class DbQueries {
             System.out.println("created");
             statement.close();
             Home.status.setText("create database successfully ^_^ " );
+
+            //get number of items to
+            try
+            {
+
+                Statement st= DbConnection.getConnection().createStatement() ;
+                int n = st.executeQuery("select max(id) from ITEM ").getInt(1) ;
+                DbQueries.rowCount = n ;
+                System.out.println("get n " + n );
+                st.close();
+            }catch (SQLException ex){
+                Home.status.setText("error" + ex.toString());
+            }
 
 
         }catch (SQLException ex){
@@ -97,7 +109,7 @@ public class DbQueries {
             }
             rs.close();
             statement.close();
-            System.out.println("addAll succussfuly ");
+            System.out.println("add All items   succussfuly ");
         }catch (SQLException s)
         {
             System.out.println(s);
@@ -168,7 +180,7 @@ public class DbQueries {
             }
             rs.close();
             statement.close();
-            System.out.println("addAll succussfuly ");
+            System.out.println("add All user  succussfuly ");
         }catch (SQLException s)
         {
             System.out.println(s);

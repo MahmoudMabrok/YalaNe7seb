@@ -1,5 +1,6 @@
 package view;
 
+import controllor.DbConnection;
 import controllor.DbQueries;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -9,6 +10,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Date;
 
 /**
@@ -41,6 +44,7 @@ public class Home extends Application  {
 
         HBox panes = new HBox(25) ;
         panes.getChildren().addAll(lp ,rp  ) ;
+        panes.setStyle("-fx-border-color: antiquewhite");
 
         root.getChildren().addAll(panes , status ) ;
         Scene scene =new Scene(root) ;
@@ -48,8 +52,14 @@ public class Home extends Application  {
         primaryStage.setTitle("YalaNe7eb");
         primaryStage.show();
 
-        lp.prefWidthProperty().bind(scene.widthProperty().multiply(0.35));
-        rp.prefWidthProperty().bind(scene.widthProperty().multiply(0.65));
 
+
+
+        lp.prefWidthProperty().bind(primaryStage.widthProperty().multiply(0.4));
+        rp.prefWidthProperty().bind(primaryStage.widthProperty().multiply(0.6));
+
+        primaryStage.setOnCloseRequest(e->{
+            DbConnection.disconnect();
+        });
     }
 }
