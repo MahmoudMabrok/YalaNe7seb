@@ -142,15 +142,15 @@ public class DbQueries {
             statement = DbConnection.getConnection().createStatement() ;
             if (id >= 0 ){
                 statement.executeUpdate("DELETE  FROM  ITEM where id = " + id) ;
+                System.out.println(id + " after  sql delete " );
                 Home.status.setText("delete item  whose id " + id + "successfully ");
+                statement.close();
+                updateAllId(id);
             }else
             {
                 statement.executeQuery("DELETE  from ITEM "); // delete all
+                statement.close();
             }
-            statement.close();
-
-            //update rest of ids
-        //    updateAllId(id);
 
         }catch (SQLException ex)
         {
@@ -161,10 +161,11 @@ public class DbQueries {
 
         try
         {
+            System.out.println("before  update all id");
             statement = DbConnection.getConnection().createStatement() ;
             statement.executeUpdate("update ITEM SET id = " + (id - 1) +" where id >  "+id );
+            System.out.println("id " + id  +"  after update fro m all id ");
             statement.close();
-            System.out.println("update all id ");
         }catch (SQLException ex)
         {
             ex.printStackTrace();
