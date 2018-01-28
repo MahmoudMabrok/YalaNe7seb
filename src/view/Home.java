@@ -20,8 +20,8 @@ import java.util.Date;
  */
 public class Home extends Application  {
 
-  public   static   LeftPane lp  ; // public to be seen outside package
-   public  static RightPane rp  ;
+     static   LeftPane lp  ; // public to be seen outside package
+     static RightPane rp  ;
 
  public static Text status  ;
 

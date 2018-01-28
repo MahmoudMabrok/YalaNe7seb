@@ -35,23 +35,28 @@ public class DbQueries {
             Home.status.setText("create database successfully ^_^ " );
 
             //get number of items to
-            try
-            {
-
-                Statement st= DbConnection.getConnection().createStatement() ;
-                int n = st.executeQuery("select max(id) from ITEM ").getInt(1) ;
-                DbQueries.rowCount = n ;
-                System.out.println("get n " + n );
-                st.close();
-            }catch (SQLException ex){
-                Home.status.setText("error" + ex.toString());
-            }
+            getLastId();
 
 
         }catch (SQLException ex){
             ex.printStackTrace();
         }
 
+    }
+    public static int  getLastId(){
+        int n =0;
+        try
+        {
+
+            Statement st= DbConnection.getConnection().createStatement() ;
+            n = st.executeQuery("select max(id) from ITEM ").getInt(1) ;
+            DbQueries.rowCount = n ;
+            System.out.println("get n " + n );
+            st.close();
+        }catch (SQLException ex){
+            Home.status.setText("error" + ex.toString());
+        }
+        return  n ;
     }
 
     public static  void addUser(String name ){
@@ -129,44 +134,60 @@ public class DbQueries {
         {
             ex.printStackTrace();
             Home.status.setText(ex.toString());
-
         }
-
     }
     public static void deleteItem (int id ){
         try
         {
-
             statement = DbConnection.getConnection().createStatement() ;
-
             if (id >= 0 ){
-                statement.executeQuery("DELETE  FROM  ITEM where id = " + id) ;
+                statement.executeUpdate("DELETE  FROM  ITEM where id = " + id) ;
                 Home.status.setText("delete item  whose id " + id + "successfully ");
-
             }else
             {
                 statement.executeQuery("DELETE  from ITEM "); // delete all
             }
             statement.close();
-            rowCount -- ;
+
+            //update rest of ids
+        //    updateAllId(id);
+
         }catch (SQLException ex)
         {
             Home.status.setText(ex.toString());
+        }
+    }
+    public static void  updateAllId(int id ){
+
+        try
+        {
+            statement = DbConnection.getConnection().createStatement() ;
+            statement.executeUpdate("update ITEM SET id = " + (id - 1) +" where id >  "+id );
+            statement.close();
+            System.out.println("update all id ");
+        }catch (SQLException ex)
+        {
+            ex.printStackTrace();
         }
 
     }
 
     public static void updateItem (String name ,int id , String  desc  ,double price){
-
         try
         {
-            statement = DbConnection.getConnection().createStatement() ;
-
+           PreparedStatement ps = DbConnection.getConnection().
+                   prepareStatement("update ITEM set  description = ? "+
+                   " ,price = ? ,name = ?  where id = "+id) ;
+            ps.setString( 1, desc );
+           ps.setDouble(2 , price);
+           ps.setString( 3 , name);
+            System.out.println( ps.executeUpdate() );
+            ps.close();
+            System.out.println(";;;;;;");
         }catch (SQLException ex ){
+            System.out.println("uuuuu "+id );
             Home.status.setText(ex.toString());
         }
-
-
     }
     public static ObservableList<String> getAllUser ()
     {
@@ -186,7 +207,5 @@ public class DbQueries {
             System.out.println(s);
         }
     return  users ;
-
     }
-
 }
