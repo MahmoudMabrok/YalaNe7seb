@@ -12,26 +12,26 @@ public class Item {
     String descrption  ;
     double price ;
     String user ;
-    String date ;
+    String itemdate ;
 
-    public String getDate() {
-        return date;
+    public String getItemdate() {
+        return itemdate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setItemdate(String itemdate) {
+        this.itemdate = itemdate;
     }
 
     public int getId() {
         return id;
     }
 
-    public Item(String descrption, double price, String user , int id  , String date) {
+    public Item(String descrption, double price, String user , int id  , String itemdate) {
         this.descrption = descrption;
         this.price = price;
         this.user = user;
       this.id = id  ;
-      this.date = date ;
+      this.itemdate = itemdate ;
     }
 
     public String getDescrption() {

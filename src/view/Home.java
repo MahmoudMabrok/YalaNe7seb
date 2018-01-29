@@ -5,7 +5,9 @@ import controllor.DbQueries;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -22,6 +24,8 @@ public class Home extends Application  {
 
      static   LeftPane lp  ; // public to be seen outside package
      static RightPane rp  ;
+     MenuPane menuPane = new MenuPane() ;
+
 
  public static Text status  ;
 
@@ -39,15 +43,21 @@ public class Home extends Application  {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-       DbQueries.creatDb(); //create db
-        VBox root = new VBox(5) ;
+         DbQueries.creatDb(); //create db
+
+        BorderPane main = new BorderPane() ;
+        System.out.println(DbQueries.getSumOfPrices("month" , "01"));
 
         HBox panes = new HBox(25) ;
         panes.getChildren().addAll(lp ,rp  ) ;
-        panes.setStyle("-fx-border-color: antiquewhite");
+        panes.setStyle("-fx-background-color: antiquewhite");
+        main.setCenter(panes);
 
-        root.getChildren().addAll(panes , status ) ;
-        Scene scene =new Scene(root) ;
+        main.setBottom(status);
+
+        main.setTop(menuPane);
+
+        Scene scene =new Scene(main) ;
         primaryStage.setScene(scene);
         primaryStage.setTitle("YalaNe7eb");
         primaryStage.show();

@@ -29,7 +29,7 @@ public class DbQueries {
             statement.executeUpdate("create table if not exists  USER ( name TEXT  PRIMARY KEY  NOT NULL  )");
             statement.executeUpdate("create table if not exists  ITEM (id integer  PRIMARY KEY  , name TEXT  " +
                     " , " +
-                    " description BLOB  , price integer  ,date TEXT  )");
+                    " description BLOB  , price integer  ,itemdate TEXT  )");
             System.out.println("created");
             statement.close();
             Home.status.setText("create database successfully ^_^ " );
@@ -110,7 +110,7 @@ public class DbQueries {
                 items.add(new Item( rs.getString("description"),
                         rs.getDouble("price"),
                         rs.getString("name"),
-                        rs.getInt("id"), rs.getString("date") )) ;
+                        rs.getInt("id"), rs.getString("itemdate") )) ;
             }
             rs.close();
             statement.close();
@@ -184,11 +184,41 @@ public class DbQueries {
            ps.setString( 3 , name);
             System.out.println( ps.executeUpdate() );
             ps.close();
-            System.out.println(";;;;;;");
         }catch (SQLException ex ){
             System.out.println("uuuuu "+id );
             Home.status.setText(ex.toString());
         }
+    }
+
+    /**
+     * get sum of all costs
+     * @param code that specify if sum to
+     *             all items
+     *             all to specific user
+     *             all by month
+     * @param key
+     * @return
+     */
+    public static  double  getSumOfPrices(String code , String key ){
+        try
+        {
+            statement = DbConnection.getConnection().createStatement();
+            if (code == "all" ){
+                return  statement.executeQuery("select sum(price) from ITEM ;").getDouble(1) ;
+            }else if(code == "user"){
+                return statement.executeQuery("SELECT sum(price) from ITEM where name =  '" + key+"'")
+                        .getDouble(1);
+            }else if(code == "month "){
+                return  statement.executeQuery("SELECT  sum(price) from ITEM where itemdate like '%-"+key+"-%'")
+                        .getDouble(1);
+            }
+            statement.close();
+
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return  0 ;
     }
     public static ObservableList<String> getAllUser ()
     {
