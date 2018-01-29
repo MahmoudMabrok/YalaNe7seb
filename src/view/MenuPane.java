@@ -1,5 +1,6 @@
 package view;
 
+import javafx.application.Platform;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -30,5 +31,15 @@ public class MenuPane  extends Pane {
 
         main.getMenus().addAll(file , helpMenu) ;
         getChildren().addAll(main) ;
+
+
+
+        //actions
+        exit.setOnAction(e->{
+            Platform.exit();
+        });
+        controlUser.setOnAction(e->{
+            ControlUser.control();
+        });
     }
 }

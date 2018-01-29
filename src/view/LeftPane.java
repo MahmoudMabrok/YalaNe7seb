@@ -16,8 +16,6 @@ import javafx.scene.layout.VBox;
 public class LeftPane extends VBox {
 
     HBox addUserPane = new HBox(5);
-    TextField user_name = new TextField("");
-    Button btnAddUser;
     TextField tfDescription;
     TextField tfPrice;
     ComboBox<String> cbUser;
@@ -29,10 +27,8 @@ public class LeftPane extends VBox {
     public LeftPane() {
 
         setStyle("-fx-background-color: chartreuse");
-        btnAddUser = new Button("Add user ");
         btnUpdateItem = new Button("Update user ");
         btnDeleteItem = new Button("Delete  item ");
-        addUserPane.getChildren().addAll(user_name, btnAddUser);
 
         tfDescription = new TextField();
         tfPrice = new TextField();
@@ -52,16 +48,10 @@ public class LeftPane extends VBox {
         cbUser.getItems().setAll(DbQueries.getAllUser());
         cbUser.setMinWidth(150);
 
-        getChildren().add(addUserPane);
         getChildren().addAll(tfDescription, tfPrice, cbUser, btnAddItem, btnUpdateItem, btnDeleteItem);
 
         //actions
-        btnAddUser.setOnAction(e -> {
-            String name = user_name.getText().toString();
-            DbQueries.addUser(name);
-            cbUser.getItems().setAll(DbQueries.getAllUser());
-            user_name.setText("");
-        });
+
         btnAddItem.setOnAction(e -> {
 
             try {

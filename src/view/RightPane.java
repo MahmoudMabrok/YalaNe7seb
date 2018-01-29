@@ -51,13 +51,6 @@ public class RightPane extends HBox {
         tableView.getItems().setAll(items) ;
         getChildren().add(tableView ) ;
 
-      /*  tableView.getSelectionModel().selectedItemProperty().addListener(e->{
-            Item i =  tableView.getSelectionModel().getSelectedItem() ;
-            Home.lp.cbUser.setValue(i.getUser());
-            Home.lp.tfDescription.setText(i.getDescrption());
-            Home.lp.tfPrice.setText(""+i.getPrice());
-        }); */
-
         tableView.setOnMousePressed (e->{
 
             Item i =  tableView.getSelectionModel().getSelectedItem() ;
