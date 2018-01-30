@@ -1,5 +1,7 @@
 package view;
 
+import controllor.DbConnection;
+import controllor.DbQueries;
 import javafx.application.Platform;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -29,17 +31,41 @@ public class MenuPane  extends Pane {
         MenuItem help = new MenuItem("help") ;
         helpMenu.getItems().addAll( about,help ) ;
 
-        main.getMenus().addAll(file , helpMenu) ;
+        Menu options = new Menu("_Options") ;
+        MenuItem deleteAllItem = new MenuItem("Delete Items    ctrl+i ");
+        MenuItem deleteAllUser = new MenuItem("Delete Users   ctrl+u ");
+        MenuItem refresh = new MenuItem("Refresh ctrl+r");
+
+        options.getItems().addAll(deleteAllItem , deleteAllUser ,refresh) ;
+
+        main.getMenus().addAll(file  , options, helpMenu) ;
         getChildren().addAll(main) ;
 
 
 
         //actions
         exit.setOnAction(e->{
+            DbConnection.disconnect();
             Platform.exit();
         });
         controlUser.setOnAction(e->{
             ControlUser.control();
+        });
+
+        deleteAllItem.setOnAction(e->{
+            DbQueries.deleteItem(-1);
+            Home.status.setText("delete All item from DataBase");
+        });
+
+        refresh.setOnAction(e->{
+            RightPane.tableView.getItems().setAll(DbQueries.getAllItems()) ;
+            Home.lp.cbUser.getItems().setAll(DbQueries.getAllUser()) ;
+            Home.status.setText("Refresh ");
+        });
+
+        deleteAllUser.setOnAction(e->{
+            DbQueries.deleteUser("");
+            Home.lp.cbUser.getItems().setAll(DbQueries.getAllUser()) ;
         });
     }
 }

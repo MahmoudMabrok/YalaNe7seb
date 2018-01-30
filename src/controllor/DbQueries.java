@@ -161,7 +161,11 @@ public class DbQueries {
         try
         {
             statement = DbConnection.getConnection().createStatement() ;
-            statement.executeUpdate("DELETE  from USER where name = '"+name + "'") ;
+            if (name == ""){  // empty string mean delete all users
+                statement.executeUpdate("DELETE  from USER ");
+            }else {
+                statement.executeUpdate("DELETE  from USER where name = '" + name + "'");
+            }
             statement.close();
             Home.status.setText("delete user " + name + "  successfully ");
         }catch(SQLException ex)
