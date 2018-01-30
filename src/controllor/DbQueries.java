@@ -110,7 +110,8 @@ public class DbQueries {
                 items.add(new Item( rs.getString("description"),
                         rs.getDouble("price"),
                         rs.getString("name"),
-                        rs.getInt("id"), rs.getString("itemdate") )) ;
+                        rs.getInt("id"),
+                        rs.getString("itemdate") )) ;
             }
             rs.close();
             statement.close();
@@ -123,11 +124,44 @@ public class DbQueries {
 
     }
 
+    public static ObservableList<Item>  itemsByUser(String name){
+
+        ObservableList<Item> items = FXCollections.observableArrayList() ;
+        try {
+
+            statement = DbConnection.getConnection().createStatement() ;
+           ResultSet rs =  statement.executeQuery("select * from ITEM where name = '" + name+"'" ) ;
+
+           while(rs.next()){
+               items.add(new Item(rs.getString("description") ,
+                       rs.getDouble("price"),
+                       rs.getString("name"),
+                       rs.getInt("id"),
+                       rs.getString("itemdate")));
+           }
+
+           statement.close();
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return items ;
+    }
+    public static void deleteItemByUser(String name) {
+
+        try
+        {
+            statement = DbConnection.getConnection().createStatement() ;
+            statement.executeUpdate("DELETE  FROM  ITEM where name = '" + name + "'") ;
+            statement.close();
+        }catch ( SQLException ex){
+            ex.printStackTrace();
+
+        }    }
     public static void deleteUser (String name ){
         try
         {
             statement = DbConnection.getConnection().createStatement() ;
-            statement.executeQuery("DELETE  from USER where name = '"+name + "'") ;
+            statement.executeUpdate("DELETE  from USER where name = '"+name + "'") ;
             statement.close();
             Home.status.setText("delete user " + name + "  successfully ");
         }catch(SQLException ex)
@@ -163,7 +197,7 @@ public class DbQueries {
         {
             System.out.println("before  update all id");
             statement = DbConnection.getConnection().createStatement() ;
-            statement.executeUpdate("update ITEM SET id = " + (id - 1) +" where id >  "+id );
+            statement.executeUpdate("update ITEM SET id = id - 1  where id >  "+id );
             System.out.println("id " + id  +"  after update fro m all id ");
             statement.close();
         }catch (SQLException ex)
@@ -193,10 +227,10 @@ public class DbQueries {
     /**
      * get sum of all costs
      * @param code that specify if sum to
-     *             all items
-     *             all to specific user
-     *             all by month
-     * @param key
+     *            (all) all items
+     *             (user)all to specific user
+     *             (month)all by month
+     * @param key  a user or month
      * @return
      */
     public static  double  getSumOfPrices(String code , String key ){
