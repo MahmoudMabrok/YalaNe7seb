@@ -13,27 +13,28 @@ import javafx.scene.layout.VBox;
  * this is
  * Created by mo3tamed on 1/26/18.
  */
-public class LeftPane  extends VBox {
+public class LeftPane extends VBox {
 
-    HBox addUserPane  = new HBox(5);
-    TextField user_name = new TextField("") ;
-    Button btnAddUser ;
-    TextField tfDescription ;
-    TextField tfPrice ;
-    ComboBox<String> cbUser ;
-    Button btnAddItem ;
-
+    HBox addUserPane = new HBox(5);
+    TextField tfDescription;
+    TextField tfPrice;
+    ComboBox<String> cbUser;
+    Button btnAddItem;
+    Button btnUpdateItem;
+    Button btnDeleteItem;
+    //static int tempId ;
 
     public LeftPane() {
 
         setStyle("-fx-background-color: chartreuse");
-        btnAddUser = new Button("Add user ") ;
-        addUserPane.getChildren().addAll(user_name , btnAddUser ) ;
+        btnUpdateItem = new Button("Update user ");
+        btnDeleteItem = new Button("Delete  item ");
 
-        tfDescription = new TextField() ;
-        tfPrice = new TextField() ;
-        cbUser = new ComboBox<>() ;
-        btnAddItem = new Button("Add Item ") ;
+        tfDescription = new TextField();
+        tfPrice = new TextField();
+        cbUser = new ComboBox<>();
+        btnAddItem = new Button("Add Item ");
+        btnUpdateItem = new Button("Update Item ");
 
         setSpacing(15);
         setPadding(new Insets(15));
@@ -44,27 +45,51 @@ public class LeftPane  extends VBox {
         tfPrice.setPromptText("Price");
         cbUser.setValue("Users");
         cbUser.setMinWidth(150);
-        cbUser.getItems().setAll(DbQueries.getAllUser()) ;
+        cbUser.getItems().setAll(DbQueries.getAllUser());
         cbUser.setMinWidth(150);
 
-        getChildren().add(addUserPane);
-        getChildren().addAll(tfDescription , tfPrice ,cbUser ,btnAddItem );
+        getChildren().addAll(tfDescription, tfPrice, cbUser, btnAddItem, btnUpdateItem, btnDeleteItem);
 
         //actions
-        btnAddUser.setOnAction(e->{
-            String name = user_name.getText().toString() ;
-            DbQueries.addUser(name);
-            cbUser.getItems().setAll(DbQueries.getAllUser()) ;
-        });
-        btnAddItem.setOnAction(e->{
 
-            String user = cbUser.getValue().toString() ;
-            String description = tfDescription.getText().toString() ;
-            double price  = Double.parseDouble(tfPrice.getText().toString()) ;
-            DbQueries.addItem(user , DbQueries.rowCount +1 , description , price);
-            RightPane.items.setAll(DbQueries.getAllItems());
-            RightPane.tableView.getItems().setAll(RightPane.items) ; 
+        btnAddItem.setOnAction(e -> {
+
+            try {
+                String user = cbUser.getValue().toString();
+                String description = tfDescription.getText().toString();
+                double price = Double.parseDouble(tfPrice.getText().toString());
+                DbQueries.addItem(user, DbQueries.getLastId() + 1, description, price);
+                RightPane.tableView.getItems().setAll(DbQueries.getAllItems());
+                Home.lp.setAllBlank();
+            } catch (NumberFormatException ex) {
+                Home.status.setText("Error in format please provide correct data ");
+            }
+        });
+        btnUpdateItem.setOnAction(e -> {
+            int id = RightPane.tableView.getSelectionModel().getSelectedItem().getId();
+            DbQueries.updateItem(cbUser.getValue().toString(),
+                    id, tfDescription.getText(),
+                    Double.parseDouble(tfPrice.getText()));
+            //RightPane.items.setAll(DbQueries.getAllItems());
+            RightPane.tableView.getItems().setAll(DbQueries.getAllItems());
+            Home.lp.setAllBlank();
+
+        });
+        btnDeleteItem.setOnAction(e -> {
+            int id = RightPane.tableView.getSelectionModel().getSelectedItem().getId();
+            System.out.println(id + " aaaaaaaaaaaaaaaaaa ");
+            DbQueries.deleteItem(id);
+            RightPane.tableView.getItems().setAll(DbQueries.getAllItems());
+            Home.lp.setAllBlank();
         });
 
     }
+
+    public void setAllBlank() {
+        tfDescription.setText("");
+        tfPrice.setText("");
+        cbUser.setPromptText("choose a user ");
+
+    }
+
 }

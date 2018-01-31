@@ -24,7 +24,7 @@ public class RightPane extends HBox {
     TableColumn<Item, Double > priceCol = new TableColumn<>("Price") ;
     TableColumn<Item, String > dateCol = new TableColumn<>("Date") ;
 
-  public  static    ObservableList<Item> items   ;
+     public    ObservableList<Item> items   ;
 
     public RightPane() {
         setStyle("-fx-border-color:aquamarine");
@@ -39,7 +39,7 @@ public class RightPane extends HBox {
         // priceCol.setMinWidth(50);
         priceCol.setCellValueFactory(new PropertyValueFactory<Item, Double>("price"));
 
-        dateCol.setCellValueFactory(new PropertyValueFactory<Item, String>("date"));
+        dateCol.setCellValueFactory(new PropertyValueFactory<Item, String>("itemdate"));
 
     /*    idCol.prefWidthProperty().bind(tableView.widthProperty().divide(4));
         userCol.prefWidthProperty().bind(tableView.widthProperty().divide(4));
@@ -50,6 +50,17 @@ public class RightPane extends HBox {
         items.setAll(DbQueries.getAllItems()) ;
         tableView.getItems().setAll(items) ;
         getChildren().add(tableView ) ;
+
+        tableView.setOnMousePressed (e->{
+
+            Item i =  tableView.getSelectionModel().getSelectedItem() ;
+           if( i != null ) {
+               Home.lp.cbUser.setValue(i.getUser());
+               Home.lp.tfDescription.setText(i.getDescrption());
+               Home.lp.tfPrice.setText("" + i.getPrice());
+           }else
+               Home.lp.setAllBlank();
+        });
 
     }
 }
