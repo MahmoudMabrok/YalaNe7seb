@@ -160,14 +160,22 @@ public class DbQueries {
     public static void deleteUser (String name ){
         try
         {
+            int result ;// store result from sql statement  0 from empty return
             statement = DbConnection.getConnection().createStatement() ;
             if (name == ""){  // empty string mean delete all users
-                statement.executeUpdate("DELETE  from USER ");
+               result = statement.executeUpdate("DELETE  from USER ");
             }else {
-                statement.executeUpdate("DELETE  from USER where name = '" + name + "'");
+               result= statement.executeUpdate("DELETE  from USER where name = '" + name + "'");
             }
             statement.close();
-            Home.status.setText("delete user " + name + "  successfully ");
+            if (result != 0){
+                Home.status.setText("delete user " + name + "  successfully ");
+            }else{
+
+                Home.status.setText("no user with this name  ");
+
+            }
+
         }catch(SQLException ex)
         {
             ex.printStackTrace();

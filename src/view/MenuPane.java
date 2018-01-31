@@ -36,6 +36,7 @@ public class MenuPane  extends Pane {
         MenuItem deleteAllUser = new MenuItem("Delete Users   ctrl+u ");
         MenuItem refresh = new MenuItem("Refresh ctrl+r");
 
+
         options.getItems().addAll(deleteAllItem , deleteAllUser ,refresh) ;
 
         main.getMenus().addAll(file  , options, helpMenu) ;
@@ -66,6 +67,9 @@ public class MenuPane  extends Pane {
         deleteAllUser.setOnAction(e->{
             DbQueries.deleteUser("");
             Home.lp.cbUser.getItems().setAll(DbQueries.getAllUser()) ;
+        });
+        statics.setOnAction(e->{
+            StatisticPane.showStatisticStage();
         });
     }
 }

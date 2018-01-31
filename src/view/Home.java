@@ -3,6 +3,7 @@ package view;
 import controllor.DbConnection;
 import controllor.DbQueries;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -82,6 +83,7 @@ public class Home extends Application  {
 
         primaryStage.setOnCloseRequest(e->{
             DbConnection.disconnect();
+            Platform.exit();
         });
 
         main.requestFocus();

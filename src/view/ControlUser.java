@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -20,14 +21,15 @@ public class ControlUser {
         VBox main = new VBox(15) ;
         main.setAlignment(Pos.CENTER);
         main.setPadding(new Insets(15));
-        main.setStyle("-fx-background-color: aquamarine;-fx-border-color: brown");
+        main.setStyle("-fx-background-color: aquamarine;-fx-border-color: burlywood;-fx-border-width:15px");
+        Text tx = new Text("Enter user name  (empty to mean all users )") ;
         TextField user_name = new TextField() ;
         user_name.setPromptText("enter name of user ");
 
 
         Button add = new Button("Add") ;
         Button delete  = new Button("Delete") ;
-        main.getChildren().addAll(user_name ,add ,delete ) ;
+        main.getChildren().addAll( tx, user_name ,add ,delete ) ;
 
         add.setOnAction(e->{
             String name = user_name.getText().toString();

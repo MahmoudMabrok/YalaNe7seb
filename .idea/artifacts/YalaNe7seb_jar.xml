@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="YalaNe7seb:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/YalaNe7seb_jar</output-path>
+    <root id="archive" name="YalaNe7seb.jar">
+      <element id="module-output" name="YalaNe7seb" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../YalaEl7sab/sqlite-jdbc-3.8.6.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/Data.db" />
+    </root>
+  </artifact>
+</component>
