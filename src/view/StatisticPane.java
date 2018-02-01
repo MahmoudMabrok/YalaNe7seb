@@ -50,14 +50,9 @@ public class StatisticPane {
             switch (choices.getValue()) {
                 case "Total Cost":
                     double sum = DbQueries.getSumOfPrices("all", "");
-                    //int count = DbQueries.getAllUser().size();
                     input.setVisible(false);
                     hint.setVisible(false);
                     area.setText(allPayments(sum));
-                    /*
-                    area.setText("Total Cost is   ::\t\t " + sum + "\n  " +
-                            "each user of  " + count + " users  should pay  ::  " + (sum / count));
-                    */
                     break;
                 case "cost of User":
                     input.setVisible(true);

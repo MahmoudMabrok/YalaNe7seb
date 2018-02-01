@@ -5,11 +5,9 @@ import javafx.collections.ObservableList;
 import model.Item;
 import model.User;
 import view.Home;
+import view.MenuPane;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 /**
  * this is
@@ -37,6 +35,7 @@ public class DbQueries {
             //get number of items to
             getLastId();
 
+            MenuPane.refresh();//refresh all data input
 
         }catch (SQLException ex){
             ex.printStackTrace();
@@ -67,8 +66,14 @@ public class DbQueries {
             statement.close();
 
             Home.status.setText("add user  -> " +name + "  to database successfully ^_^ " );
-        }catch (SQLException ex){
-            ex.printStackTrace();
+            MenuPane.refresh();//refresh all data input
+        }catch (SQLException  ex){
+           if (ex.getMessage().contains("UNIQUE"))
+               Home.status.setText("ERROR!! , there is a user with same name ");
+           else
+           {
+               Home.status.setText("Error !!");
+           }
         }
 
 
@@ -93,6 +98,7 @@ public class DbQueries {
             rowCount++ ;
 
             Home.status.setText("add item whose id    -> " +id + "  to database successfully ^_^ " );
+            MenuPane.refresh();//refresh all data input
 
         }catch (SQLException s)
         {
@@ -153,27 +159,33 @@ public class DbQueries {
             statement = DbConnection.getConnection().createStatement() ;
             statement.executeUpdate("DELETE  FROM  ITEM where name = '" + name + "'") ;
             statement.close();
+
+            MenuPane.refresh();//refresh all data input
         }catch ( SQLException ex){
             ex.printStackTrace();
 
         }    }
     public static void deleteUser (String name ){
+
         try
         {
             int result ;// store result from sql statement  0 from empty return
             statement = DbConnection.getConnection().createStatement() ;
-            if (name == ""){  // empty string mean delete all users
+            if (name.equals("all")){  // mean delete all users
                result = statement.executeUpdate("DELETE  from USER ");
             }else {
                result= statement.executeUpdate("DELETE  from USER where name = '" + name + "'");
             }
             statement.close();
-            if (result != 0){
+            if (result != 0){  //check if sql success find an item
+               if (name.equals("all"))
+                   Home.status.setText("delete all user successfully ");
+               else
                 Home.status.setText("delete user " + name + "  successfully ");
+
+                MenuPane.refresh();//refresh all data input
             }else{
-
-                Home.status.setText("no user with this name  ");
-
+                Home.status.setText("no user with this name or database is empty ");
             }
 
         }catch(SQLException ex)
@@ -186,7 +198,7 @@ public class DbQueries {
         try
         {
             statement = DbConnection.getConnection().createStatement() ;
-            if (id >= 0 ){
+            if (id >= 1 ){
                 statement.executeUpdate("DELETE  FROM  ITEM where id = " + id) ;
                 System.out.println(id + " after  sql delete " );
                 Home.status.setText("delete item  whose id " + id + "successfully ");
@@ -194,9 +206,11 @@ public class DbQueries {
                 updateAllId(id);
             }else
             {
-                statement.executeQuery("DELETE  from ITEM "); // delete all
+                statement.executeUpdate("DELETE  from ITEM "); // delete all
                 statement.close();
+                Home.status.setText("delete all item successfully ");
             }
+            MenuPane.refresh();//refresh all data input
 
         }catch (SQLException ex)
         {
@@ -230,6 +244,7 @@ public class DbQueries {
            ps.setString( 3 , name);
             System.out.println( ps.executeUpdate() );
             ps.close();
+            MenuPane.refresh();//refresh all data input
         }catch (SQLException ex ){
             System.out.println("uuuuu "+id );
             Home.status.setText(ex.toString());

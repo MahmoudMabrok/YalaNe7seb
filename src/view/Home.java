@@ -7,6 +7,8 @@ import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -54,10 +56,9 @@ public class Home extends Application  {
         HBox panes = new HBox(25) ;
         panes.getChildren().addAll(lp ,rp  ) ;
         panes.setStyle("-fx-background-color: antiquewhite");
+
         main.setCenter(panes);
-
         main.setBottom(status);
-
         main.setTop(menuPane);
 
         Scene scene =new Scene(main) ;
@@ -66,15 +67,24 @@ public class Home extends Application  {
         primaryStage.show();
 
         //action on shortcuts
+
+        KeyCombination ctrlA = KeyCodeCombination.keyCombination("Ctrl+A") ;
         main.setOnKeyPressed(e->{
             if (e.getCode() == KeyCode.DELETE ){
                 int id  =  RightPane.tableView.getSelectionModel().getSelectedItem().getId();
                 if (id > -1 ){
                     DbQueries.deleteItem(id);
-                    RightPane.tableView.getItems().setAll(DbQueries.getAllItems());
                 }
             }
-
+            else if(e.getCode() == KeyCode.U && e.isControlDown()){
+                DbQueries.deleteUser("all");
+            }
+            else if (e.getCode() == KeyCode.I && e.isControlDown()){
+                DbQueries.deleteItem(-1);
+            }
+            else if (ctrlA.match(e)){
+                System.out.println("Ctrl+A");
+            }
 
         });
 
@@ -85,7 +95,6 @@ public class Home extends Application  {
             DbConnection.disconnect();
             Platform.exit();
         });
-
         main.requestFocus();
 
     }
