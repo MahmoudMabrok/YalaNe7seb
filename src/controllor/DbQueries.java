@@ -24,8 +24,11 @@ public class DbQueries {
         {
             statement = DbConnection.getConnection().createStatement();
             //create a table if it not exist
-            statement.executeUpdate("create table if not exists  USER ( name TEXT  PRIMARY KEY  NOT NULL  )");
-            statement.executeUpdate("create table if not exists  ITEM (id integer  PRIMARY KEY  , name TEXT  " +
+            statement.executeUpdate(" PRAGMA foreign_keys = ON;") ; // foreign key is disabled by default
+            statement.executeUpdate("create table if not exists  USER " +
+                    "( name TEXT  PRIMARY KEY  NOT NULL  )");
+            statement.executeUpdate("create table if not exists  ITEM (id integer  PRIMARY KEY  , " +
+                    "name TEXT REFERENCES  USER(name)  ON DELETE   CASCADE" +
                     " , " +
                     " description BLOB  , price integer  ,itemdate TEXT  )");
             System.out.println("created");
