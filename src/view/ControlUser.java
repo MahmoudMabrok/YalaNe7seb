@@ -22,7 +22,7 @@ public class ControlUser {
         main.setAlignment(Pos.CENTER);
         main.setPadding(new Insets(15));
         main.setStyle("-fx-background-color: aquamarine;-fx-border-color: burlywood;-fx-border-width:15px");
-        Text tx = new Text("Enter user name  (empty to mean all users )") ;
+        Text tx = new Text("Enter user name  (\"all\" to mean all users )") ;
         TextField user_name = new TextField() ;
         user_name.setPromptText("enter name of user ");
 
@@ -32,16 +32,27 @@ public class ControlUser {
         main.getChildren().addAll( tx, user_name ,add ,delete ) ;
 
         add.setOnAction(e->{
-            String name = user_name.getText().toString();
+            String name = user_name.getText();
+            if(name.trim().length() > 0 && Character.isLetter(name.charAt(0)) ) {
+                System.out.println("a"+name+"5");
             DbQueries.addUser(name);
-            Home.lp.cbUser.getItems().setAll(DbQueries.getAllUser());
             user_name.setText("");
+            }
+            else
+            {
+                Home.status.setText("Please enter an userName ");
+            }
         });
         delete.setOnAction(e->{
             String name = user_name.getText().toString();
-            DbQueries.deleteUser(name);
-            Home.lp.cbUser.getItems().setAll(DbQueries.getAllUser());
-            user_name.setText("");
+            if (name.trim().length() > 0 ) {
+                DbQueries.deleteUser(name);
+                user_name.setText("");
+            }
+            else
+            {
+                Home.status.setText("Error!!,  please enter an user name");
+            }
         });
 
         stage.setScene(new Scene(main));

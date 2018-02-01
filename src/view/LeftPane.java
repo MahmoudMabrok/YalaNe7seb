@@ -43,12 +43,14 @@ public class LeftPane extends VBox {
 
         tfDescription.setPromptText("Items");
         tfPrice.setPromptText("Price");
-        cbUser.setValue("Users");
+        //cbUser.setValue("Users");
+        cbUser.setPromptText("Enter User");
         cbUser.setMinWidth(150);
         cbUser.getItems().setAll(DbQueries.getAllUser());
         cbUser.setMinWidth(150);
 
-        getChildren().addAll(tfDescription, tfPrice, cbUser, btnAddItem, btnUpdateItem, btnDeleteItem);
+        getChildren().addAll(tfDescription, tfPrice, cbUser,
+                btnAddItem, btnUpdateItem, btnDeleteItem);
 
         //actions
 
@@ -56,12 +58,16 @@ public class LeftPane extends VBox {
 
             try {
                 String user = cbUser.getValue().toString();
-                String description = tfDescription.getText().toString();
-                double price = Double.parseDouble(tfPrice.getText().toString());
-                DbQueries.addItem(user, DbQueries.getLastId() + 1, description, price);
-                RightPane.tableView.getItems().setAll(DbQueries.getAllItems());
-                Home.lp.setAllBlank();
-            } catch (NumberFormatException ex) {
+                if (user.length() > 0 ) {
+                    String description = tfDescription.getText().toString();
+                    double price = Double.parseDouble(tfPrice.getText().toString());
+                    DbQueries.addItem(user, DbQueries.getLastId() + 1, description, price);
+                    Home.lp.setAllBlank();
+                }
+            }catch (NullPointerException ex ){
+                Home.status.setText("Error!! ,  you should choose a user ");
+            }
+            catch (NumberFormatException ex) {
                 Home.status.setText("Error in format please provide correct data ");
             }
         });
@@ -70,16 +76,12 @@ public class LeftPane extends VBox {
             DbQueries.updateItem(cbUser.getValue().toString(),
                     id, tfDescription.getText(),
                     Double.parseDouble(tfPrice.getText()));
-            //RightPane.items.setAll(DbQueries.getAllItems());
-            RightPane.tableView.getItems().setAll(DbQueries.getAllItems());
             Home.lp.setAllBlank();
 
         });
         btnDeleteItem.setOnAction(e -> {
             int id = RightPane.tableView.getSelectionModel().getSelectedItem().getId();
-            System.out.println(id + " aaaaaaaaaaaaaaaaaa ");
             DbQueries.deleteItem(id);
-            RightPane.tableView.getItems().setAll(DbQueries.getAllItems());
             Home.lp.setAllBlank();
         });
 
@@ -88,7 +90,8 @@ public class LeftPane extends VBox {
     public void setAllBlank() {
         tfDescription.setText("");
         tfPrice.setText("");
-        cbUser.setPromptText("choose a user ");
+        cbUser.setValue("");
+
 
     }
 

@@ -30,9 +30,9 @@ public class RightPane extends HBox {
         setStyle("-fx-border-color:aquamarine");
 
         items  = FXCollections.observableArrayList() ;
-        // idCol.setMinWidth(50);
+        idCol.setMinWidth(40);
         idCol.setCellValueFactory(new PropertyValueFactory<Item, Integer>("id"));
-        // userCol.setMinWidth(100);
+         userCol.setMinWidth(100);
         userCol.setCellValueFactory(new PropertyValueFactory<Item, String>("user"));
         // descCol.setMinWidth(180);
         descCol.setCellValueFactory(new PropertyValueFactory<Item, String>("descrption"));

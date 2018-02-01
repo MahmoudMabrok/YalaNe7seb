@@ -56,20 +56,30 @@ public class MenuPane  extends Pane {
         deleteAllItem.setOnAction(e->{
             DbQueries.deleteItem(-1);
             Home.status.setText("delete All item from DataBase");
+            refresh();
         });
 
         refresh.setOnAction(e->{
-            RightPane.tableView.getItems().setAll(DbQueries.getAllItems()) ;
-            Home.lp.cbUser.getItems().setAll(DbQueries.getAllUser()) ;
+            refresh();
             Home.status.setText("Refresh ");
         });
 
         deleteAllUser.setOnAction(e->{
-            DbQueries.deleteUser("");
-            Home.lp.cbUser.getItems().setAll(DbQueries.getAllUser()) ;
+            DbQueries.deleteUser("all");
+            refresh();
         });
         statics.setOnAction(e->{
             StatisticPane.showStatisticStage();
         });
+    }
+
+    public static  void refresh(){
+        RightPane.tableView.getItems().setAll(DbQueries.getAllItems()) ;
+        Home.lp.cbUser.getItems().setAll(DbQueries.getAllUser()) ;
+        System.out.println("DbQueries.getAllUser() = " + DbQueries.getAllUser());
+       // Home.lp.cbUser.setValue("");
+        Home.lp.cbUser.setPromptText("Enter User");
+        Home.lp.setAllBlank();
+
     }
 }
