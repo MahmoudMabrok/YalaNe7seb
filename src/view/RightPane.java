@@ -56,7 +56,7 @@ public class RightPane extends HBox {
             Item i =  tableView.getSelectionModel().getSelectedItem() ;
            if( i != null ) {
                Home.lp.cbUser.setValue(i.getUser());
-               Home.lp.tfDescription.setText(i.getDescrption());
+               Home.lp.descriptionInput.setText(i.getDescrption());
                Home.lp.tfPrice.setText("" + i.getPrice());
            }else
                Home.lp.setAllBlank();
