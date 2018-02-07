@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -18,6 +19,8 @@ public class RightPane extends HBox {
 
 
    static TableView<Item> tableView  = new TableView<>() ;
+   static TextArea data = new TextArea();
+
     TableColumn< Item, Integer > idCol = new TableColumn<>("Id") ;
     TableColumn<Item, String  > userCol = new TableColumn<>("User") ;
     TableColumn<Item, String  > descCol = new TableColumn<>("Description") ;
@@ -54,7 +57,7 @@ public class RightPane extends HBox {
         tableView.getColumns().addAll(idCol , userCol , descCol , priceCol ,dateCol ) ;
         items.setAll(DbQueries.getAllItems()) ;
         tableView.getItems().setAll(items) ;
-        getChildren().add(tableView ) ;
+        getChildren().addAll( data, tableView ) ;
 
         tableView.setOnMousePressed (e->{
 
