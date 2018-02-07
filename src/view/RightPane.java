@@ -41,10 +41,15 @@ public class RightPane extends HBox {
 
         dateCol.setCellValueFactory(new PropertyValueFactory<Item, String>("itemdate"));
 
-    /*    idCol.prefWidthProperty().bind(tableView.widthProperty().divide(4));
-        userCol.prefWidthProperty().bind(tableView.widthProperty().divide(4));
-        descCol.prefWidthProperty().bind(tableView.widthProperty().divide(4));
-        priceCol.prefWidthProperty().bind(tableView.widthProperty().divide(4));*/
+        //set pref width of column
+        idCol.prefWidthProperty().bind(tableView.widthProperty().divide(5));
+        userCol.prefWidthProperty().bind(tableView.widthProperty().divide(5));
+        descCol.prefWidthProperty().bind(tableView.widthProperty().multiply(0.4));//make it double of other
+        priceCol.prefWidthProperty().bind(tableView.widthProperty().divide(5));
+        dateCol.prefWidthProperty().bind(tableView.widthProperty().divide(5));
+
+       // tableView.prefWidthProperty().bind(this.widthProperty());
+
 
         tableView.getColumns().addAll(idCol , userCol , descCol , priceCol ,dateCol ) ;
         items.setAll(DbQueries.getAllItems()) ;

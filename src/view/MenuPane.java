@@ -71,11 +71,18 @@ public class MenuPane  extends Pane {
         statics.setOnAction(e->{
             StatisticPane.showStatisticStage();
         });
+        about.setOnAction(e->{
+            infoPane.aboutStage();
+        });
+        help.setOnAction(e->{
+            infoPane.helpStage();
+        });
     }
 
     public static  void refresh(){
         RightPane.tableView.getItems().setAll(DbQueries.getAllItems()) ;
         Home.lp.cbUser.getItems().setAll(DbQueries.getAllUser()) ;
+
         System.out.println("DbQueries.getAllUser() = " + DbQueries.getAllUser());
        // Home.lp.cbUser.setValue("");
         Home.lp.cbUser.setPromptText("Enter User");
