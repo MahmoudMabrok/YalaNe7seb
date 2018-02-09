@@ -18,11 +18,8 @@ public class MenuPane  extends Pane {
 
     public MenuPane() {
 
-
         MenuBar main = new MenuBar() ;
-
         Menu file = new Menu("_File");
-
         MenuItem controlUser = new MenuItem("controlUsers") ;
         MenuItem statics = new MenuItem("Statics") ;
         MenuItem exit = new MenuItem("exit") ;
@@ -33,7 +30,7 @@ public class MenuPane  extends Pane {
         Dialog dialog = new Alert(Alert.AlertType.INFORMATION);
         dialog.setHeaderText("Welcome !!! ");
         DialogPane dpane =dialog.getDialogPane();
-        dpane.getChildren().remove(0);
+        dpane.getChildren().remove(dpane.getChildren().size()-1);
 
         MenuItem  about = new MenuItem("About") ;
         MenuItem help = new MenuItem("help") ;
@@ -43,7 +40,6 @@ public class MenuPane  extends Pane {
         MenuItem deleteAllItem = new MenuItem("Delete Items");
         MenuItem deleteAllUser = new MenuItem("Delete Users");
         MenuItem refresh = new MenuItem("Refresh");
-
 
         options.getItems().addAll(deleteAllItem , deleteAllUser ,refresh) ;
 
@@ -84,19 +80,16 @@ public class MenuPane  extends Pane {
         statics.setOnAction(e->{
             StatisticPane.showStatisticStage();
         });
+        about.setAccelerator(KeyCombination.keyCombination("Ctrl+B"));
         about.setOnAction(e->{
             dialog.setTitle("About");
             dialog.setContentText(infoPane.about);
-         //   dialog.initModality(Modality.NONE);
             dialog.showAndWait();
-            
-
-            //infoPane.aboutStage();
         });
+        help.setAccelerator(KeyCombination.keyCombination("Ctrl+H"));
         help.setOnAction(e->{
             dialog.setTitle("About");
             dialog.setContentText(infoPane.help);
-            //   dialog.initModality(Modality.NONE);
             dialog.showAndWait();
         });
     }

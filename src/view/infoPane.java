@@ -21,14 +21,18 @@ public class infoPane {
   static  Stage mainStage  ;
 
   static  Font fHont = Font.font( "sanserif"  , FontWeight.NORMAL,FontPosture.REGULAR ,20  ) ;
-   static    String help = "\t##Getting started ## \n" +
-            "* Welcome to YalaNe7seb app \n " +
+   static    String help = "* Welcome to YalaNe7seb app \n " +
             "* first add users to app by using Menu File ->controluser -> then add user \n" +
             "## you can use some Keyboard shortcuts :: \n" +
             "* ctrl+r   to refresh all app \n" +
             "* ctrl+d   to delete selected item from database \n" +
             "* ctrl+i    delete all item from database \n" +
-            "* ctrl+u   delete all user from database  \n" ;
+            "* ctrl+u   delete all user from database  \n" +
+            "* ctrl+s   open statistics window  \n" +
+            "* ctrl+a   open window to add/remove user  \n" +
+            "* ctrl+b   open about window  \n" +
+            "* ctrl+h   open help window\n" +
+            "* ctrl+x   close application \n" ;
 
   static   String about = "YalaNe7seb program to store daily purchase\n with capabilities" +
             " (sum of all costs , sum payments of a user\n , get each amount of money should every one" +

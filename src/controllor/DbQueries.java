@@ -273,12 +273,21 @@ public class DbQueries {
         {
             statement = DbConnection.getConnection().createStatement();
             if (code == "all" ){
-                return  statement.executeQuery("select sum(price) from ITEM ;").getDouble(1) ;
+                return  statement.executeQuery("select sum(price)" +
+                        " from ITEM ;").getDouble(1) ;
             }else if(code == "user"){
-                return statement.executeQuery("SELECT sum(price) from ITEM where name =  '" + key+"'")
+                return statement.executeQuery("SELECT sum(price) from ITEM" +
+                        " where name =  '" + key+"'")
                         .getDouble(1);
-            }else if(code == "month "){
-                return  statement.executeQuery("SELECT  sum(price) from ITEM where itemdate like '%-"+key+"-%'")
+            }else if(code == "month"){
+                return  statement.executeQuery("SELECT  sum(price) " +
+                        "from ITEM where itemdate like '%-"+key+"-%'")
+                        .getDouble(1);
+            }
+            else if (code == "monthFrom")
+            {
+            return     statement.executeQuery("SELECT  sum(price) from ITEM" +
+                        " where itemdate  BETWEEN  \""+key+"\" AND date('now')")
                         .getDouble(1);
             }
             statement.close();
