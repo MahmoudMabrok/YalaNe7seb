@@ -21,6 +21,14 @@ public class infoPane {
   static  Stage mainStage  ;
 
   static  Font fHont = Font.font( "sanserif"  , FontWeight.NORMAL,FontPosture.REGULAR ,20  ) ;
+   static    String help = "Getting started :: \n " +
+            "Welcome to YalaNe7seb app \n " +
+            "first add users to app by using Menu File ->controluser -> then add user \n" +
+            "you can use some Keyboard shortcuts :: \n" +
+            "ctrl+r   to refresh all app \n" +
+            "ctrl+d   to delete selected item from database \n" +
+            "ctrl+i    delete all item from database \n" +
+            "ctrl+u   delete all user from database  \n" ;
 
     public static void setUpStage (String name ){
 
@@ -49,14 +57,7 @@ public class infoPane {
     }
     public static void helpStage(){
 
-        String help = "Getting started :: \n " +
-                "Welcome to YalaNe7seb app \n " +
-                "first add users to app by using Menu File ->controluser -> then add user \n" +
-                "you can use some Keyboard shortcuts :: \n" +
-                "ctrl+r   to refresh all app \n" +
-                "ctrl+d   to delete selected item from database \n" +
-                "ctrl+i    delete all item from database \n" +
-                "ctrl+u   delete all user from database  \n" ;
+
 
         setUpStage("help");
         mainText.setText(help);

@@ -27,7 +27,7 @@ public class LeftPane extends VBox {
 
     public LeftPane() {
 
-        setStyle("-fx-background-color: chartreuse");
+        setStyle("-fx-background-color: blue");
         hint =new Text("Select an User ") ;
 
         btnUpdateItem = new Button("Update user ");
@@ -50,7 +50,6 @@ public class LeftPane extends VBox {
 
         descriptionInput.setPromptText("Items");
         tfPrice.setPromptText("Price");
-        //cbUser.setValue("Users");
         cbUser.setPromptText("Enter User");
         cbUser.setMinWidth(150);
         cbUser.getItems().setAll(DbQueries.getAllUser());
@@ -79,17 +78,33 @@ public class LeftPane extends VBox {
             }
         });
         btnUpdateItem.setOnAction(e -> {
-            int id = RightPane.tableView.getSelectionModel().getSelectedItem().getId();
-            DbQueries.updateItem(cbUser.getValue().toString(),
-                    id, descriptionInput.getText(),
-                    Double.parseDouble(tfPrice.getText()));
-            Home.lp.setAllBlank();
+            try {
+                int id = RightPane.tableView.getSelectionModel().getSelectedItem().getId();
+                    DbQueries.updateItem(cbUser.getValue().toString(),
+                            id, descriptionInput.getText(),
+                            Double.parseDouble(tfPrice.getText()));
+                Home.lp.setAllBlank();
+                Home.status.setText("Updated Successfully");
+            }catch (NullPointerException ex )
+            {
+                Home.status.setText("You should select item from table");
+            }
+            catch (NumberFormatException ex ){
+                Home.status.setText("Error in format please provide correct data ");
+            }
         });
 
         btnDeleteItem.setOnAction(e -> {
-            int id = RightPane.tableView.getSelectionModel().getSelectedItem().getId();
-            DbQueries.deleteItem(id);
-            Home.lp.setAllBlank();
+            try {
+                int id = RightPane.tableView.getSelectionModel().getSelectedItem().getId();
+                DbQueries.deleteItem(id);
+                Home.lp.setAllBlank();
+                Home.status.setText("Deleted Successfully");
+            }catch (NullPointerException ex)
+            {
+                Home.status.setText("You should select item from table");
+            }
+
         });
 
     }

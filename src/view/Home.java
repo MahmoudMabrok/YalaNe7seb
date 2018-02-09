@@ -58,6 +58,9 @@ public class Home extends Application  {
         panes.getChildren().addAll(lp ,rp  ) ;
         panes.setStyle("-fx-background-color: antiquewhite");
         Pane statusPane = new Pane(status) ;
+       statusPane.setMaxHeight(30);
+       statusPane.setMinHeight(10);
+
 
         root.getChildren().addAll(menuPane , panes , statusPane) ;
 
@@ -81,10 +84,9 @@ public class Home extends Application  {
             }
         });
 
-        menuPane.prefHeightProperty().bind(root.heightProperty().multiply(0.2));
-        statusPane.prefHeightProperty().bind(root.heightProperty().multiply(0.2));
-        panes.prefHeightProperty().bind(root.heightProperty().subtract(
-                menuPane.heightProperty().add(statusPane.heightProperty()).get() ));
+       // menuPane.prefHeightProperty().bind(root.heightProperty().multiply(0.2));
+      //  statusPane.prefHeightProperty().bind(root.heightProperty().multiply(0.2));
+        panes.prefHeightProperty().bind(root.heightProperty().subtract(100) );
 
 
         lp.prefWidthProperty().bind(root.widthProperty().multiply(0.4));
