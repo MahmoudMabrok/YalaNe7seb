@@ -80,8 +80,8 @@ public class LeftPane extends VBox {
                     id, descriptionInput.getText(),
                     Double.parseDouble(tfPrice.getText()));
             Home.lp.setAllBlank();
-
         });
+
         btnDeleteItem.setOnAction(e -> {
             int id = RightPane.tableView.getSelectionModel().getSelectedItem().getId();
             DbQueries.deleteItem(id);

@@ -70,5 +70,9 @@ public class RightPane extends HBox {
                Home.lp.setAllBlank();
         });
 
+
+
+
+
     }
 }
