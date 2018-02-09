@@ -48,22 +48,22 @@ public class Home extends Application  {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-         DbQueries.creatDb(); //create db
+        DbQueries.creatDb(); //create db
 
         BorderPane main = new BorderPane() ;
-        VBox root = new VBox(10) ;
+      //  VBox root = new VBox(10) ;
         System.out.println(DbQueries.getSumOfPrices("month" , "01"));
 
         HBox panes = new HBox() ;
         panes.getChildren().addAll(lp ,rp  ) ;
         panes.setStyle("-fx-background-color: antiquewhite");
-        Pane statusPane = new Pane(status) ;
+      //  Pane statusPane = new Pane(status) ;
 
        /*statusPane.setMaxHeight(30);
        statusPane.setMinHeight(10);*/
 
 
-        root.getChildren().addAll(menuPane , panes , statusPane) ;
+      //  root.getChildren().addAll(menuPane , panes , statusPane) ;
 
         main.setCenter(panes);
         main.setBottom(status);
@@ -87,11 +87,11 @@ public class Home extends Application  {
 
        // menuPane.prefHeightProperty().bind(root.heightProperty().multiply(0.2));
       //  statusPane.prefHeightProperty().bind(root.heightProperty().multiply(0.2));
-        panes.prefHeightProperty().bind(main.heightProperty().subtract(100) );
+       // panes.prefHeightProperty().bind(main.heightProperty().subtract(100) );
 
 
-        lp.prefWidthProperty().bind(main.widthProperty().multiply(0.4));
-        rp.prefWidthProperty().bind(main.widthProperty().multiply(0.6));
+        lp.prefWidthProperty().bind(panes.widthProperty().multiply(0.2));
+        rp.prefWidthProperty().bind(panes.widthProperty().multiply(0.8));
 
         primaryStage.setOnCloseRequest(e->{
             DbConnection.disconnect();

@@ -34,6 +34,10 @@ public class RightPane extends VBox {
      public    ObservableList<Item> items   ;
 
     public RightPane() {
+        ScrollPane scroll = new ScrollPane(tableView) ;
+        scroll.setFitToHeight(true);
+        scroll.setFitToWidth(true);
+
         Text hint = new Text("Statistics ") ;
         hint.setStyle("-fx-background-color: blanchedalmond;-fx-text-fill: black");
         setSpacing(10);
@@ -54,18 +58,14 @@ public class RightPane extends VBox {
         dateCol.setCellValueFactory(new PropertyValueFactory<Item, String>("itemdate"));
 
         //set pref width of column
-        idCol.prefWidthProperty().bind(tableView.widthProperty().divide(5));
-        userCol.prefWidthProperty().bind(tableView.widthProperty().divide(5));
-        descCol.prefWidthProperty().bind(tableView.widthProperty().multiply(0.4));//make it double of other
-        priceCol.prefWidthProperty().bind(tableView.widthProperty().divide(5));
-        dateCol.prefWidthProperty().bind(tableView.widthProperty().divide(5));
+        idCol.prefWidthProperty().bind(this.widthProperty().divide(5));
+        userCol.prefWidthProperty().bind(this.widthProperty().divide(5));
+        descCol.prefWidthProperty().bind(this.widthProperty().multiply(0.4));//make it double of other
+        priceCol.prefWidthProperty().bind(this.widthProperty().divide(5));
+        dateCol.prefWidthProperty().bind(this.widthProperty().divide(5));
 
 
-        tableView.prefWidthProperty().bind(this.widthProperty());
-
-
-       // dataPane.prefHeightProperty().bind(this.heightProperty().multiply(0.3));
-   //     dataPane.prefWidthProperty().bind(this.widthProperty());
+       // tableView.prefWidthProperty().bind(this.widthProperty());
 
 
         tableView.getColumns().addAll(idCol , userCol , descCol , priceCol ,dateCol ) ;

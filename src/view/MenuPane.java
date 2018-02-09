@@ -31,6 +31,9 @@ public class MenuPane  extends Pane {
 
         Menu helpMenu = new Menu("_Help") ;
         Dialog dialog = new Alert(Alert.AlertType.INFORMATION);
+        dialog.setHeaderText("Welcome !!! ");
+        DialogPane dpane =dialog.getDialogPane();
+        dpane.getChildren().remove(0);
 
         MenuItem  about = new MenuItem("About") ;
         MenuItem help = new MenuItem("help") ;
@@ -82,17 +85,19 @@ public class MenuPane  extends Pane {
             StatisticPane.showStatisticStage();
         });
         about.setOnAction(e->{
-            dialog.setContentText(infoPane.help);
+            dialog.setTitle("About");
+            dialog.setContentText(infoPane.about);
          //   dialog.initModality(Modality.NONE);
-            dialog.getDialogPane().getChildren().add(new Button("sss")) ;
             dialog.showAndWait();
             
 
             //infoPane.aboutStage();
         });
         help.setOnAction(e->{
-
-            infoPane.helpStage();
+            dialog.setTitle("About");
+            dialog.setContentText(infoPane.help);
+            //   dialog.initModality(Modality.NONE);
+            dialog.showAndWait();
         });
     }
 
