@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 /**
  * this is
@@ -21,11 +22,14 @@ public class LeftPane extends VBox {
     Button btnAddItem;
     Button btnUpdateItem;
     Button btnDeleteItem;
+    Text hint ;
     //static int tempId ;
 
     public LeftPane() {
 
         setStyle("-fx-background-color: chartreuse");
+        hint =new Text("Select an User ") ;
+
         btnUpdateItem = new Button("Update user ");
         btnDeleteItem = new Button("Delete  item ");
 
@@ -52,7 +56,7 @@ public class LeftPane extends VBox {
         cbUser.getItems().setAll(DbQueries.getAllUser());
         cbUser.setMinWidth(150);
 
-        getChildren().addAll( cbUser,tfPrice , descriptionPane,
+        getChildren().addAll( hint,cbUser,tfPrice , descriptionPane,
                 btnAddItem, btnUpdateItem, btnDeleteItem);
 
         //actions

@@ -3,23 +3,27 @@ package view;
 import controllor.DbQueries;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import model.Item;
 
 /**
  * this is
  * Created by mo3tamed on 1/26/18.
  */
-public class RightPane extends HBox {
+public class RightPane extends VBox {
 
 
    static TableView<Item> tableView  = new TableView<>() ;
-   static TextArea data = new TextArea();
+  // static TextArea data = new TextArea();
+     public  static   Text  data = new Text("") ;
 
     TableColumn< Item, Integer > idCol = new TableColumn<>("Id") ;
     TableColumn<Item, String  > userCol = new TableColumn<>("User") ;
@@ -30,7 +34,12 @@ public class RightPane extends HBox {
      public    ObservableList<Item> items   ;
 
     public RightPane() {
+        Text hint = new Text("Statistics ") ;
+        hint.setStyle("-fx-background-color: blanchedalmond;-fx-text-fill: black");
+        setSpacing(10);
         setStyle("-fx-border-color:aquamarine");
+       // ScrollPane dataPane = new ScrollPane(data) ;
+      //  data.setEditable(false);
 
         items  = FXCollections.observableArrayList() ;
         idCol.setMinWidth(40);
@@ -51,13 +60,18 @@ public class RightPane extends HBox {
         priceCol.prefWidthProperty().bind(tableView.widthProperty().divide(5));
         dateCol.prefWidthProperty().bind(tableView.widthProperty().divide(5));
 
-       // tableView.prefWidthProperty().bind(this.widthProperty());
+
+        tableView.prefWidthProperty().bind(this.widthProperty());
+
+
+       // dataPane.prefHeightProperty().bind(this.heightProperty().multiply(0.3));
+   //     dataPane.prefWidthProperty().bind(this.widthProperty());
 
 
         tableView.getColumns().addAll(idCol , userCol , descCol , priceCol ,dateCol ) ;
         items.setAll(DbQueries.getAllItems()) ;
         tableView.getItems().setAll(items) ;
-        getChildren().addAll( data, tableView ) ;
+        getChildren().addAll( tableView , hint , data ) ;
 
         tableView.setOnMousePressed (e->{
 
@@ -69,6 +83,7 @@ public class RightPane extends HBox {
            }else
                Home.lp.setAllBlank();
         });
+
 
 
 

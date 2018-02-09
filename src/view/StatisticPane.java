@@ -49,10 +49,9 @@ public class StatisticPane {
         choices.setOnAction(e -> {
             switch (choices.getValue()) {
                 case "Total Cost":
-                    double sum = DbQueries.getSumOfPrices("all", "");
                     input.setVisible(false);
                     hint.setVisible(false);
-                    area.setText(allPayments(sum));
+                    area.setText(allPayments());
                     break;
                 case "cost of User":
                     input.setVisible(true);
@@ -82,10 +81,10 @@ public class StatisticPane {
     /**
      * return a string contain  Total payment
      * and each user payment and how mush he should pay
-     * @param sum  sum of all payment
      * @return this string
      */
-    public static String allPayments(double sum) {
+    public static String allPayments() {
+        double sum = DbQueries.getSumOfPrices("all", "");
         StringBuilder sb = new StringBuilder();
         sb.append("Total Payment is " + sum + "\n") ;
         double userPay =0 ;

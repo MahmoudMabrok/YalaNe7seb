@@ -28,7 +28,7 @@ import java.util.Date;
 public class Home extends Application  {
 
      static   LeftPane lp  ; // public to be seen outside package
-     static RightPane rp  ;
+    static RightPane rp  ;
      MenuPane menuPane = new MenuPane() ;
 
 
@@ -50,52 +50,51 @@ public class Home extends Application  {
 
          DbQueries.creatDb(); //create db
 
-        BorderPane main = new BorderPane() ;
+     //   BorderPane main = new BorderPane() ;
+        VBox root = new VBox(10) ;
         System.out.println(DbQueries.getSumOfPrices("month" , "01"));
 
-        HBox panes = new HBox(25) ;
+        HBox panes = new HBox() ;
         panes.getChildren().addAll(lp ,rp  ) ;
         panes.setStyle("-fx-background-color: antiquewhite");
+        Pane statusPane = new Pane(status) ;
 
-        main.setCenter(panes);
+        root.getChildren().addAll(menuPane , panes , statusPane) ;
+
+       /* main.setCenter(panes);
         main.setBottom(status);
-        main.setTop(menuPane);
+        main.setTop(menuPane);*/
 
-        Scene scene =new Scene(main) ;
+        Scene scene =new Scene(root) ;
         primaryStage.setScene(scene);
         primaryStage.setTitle("YalaNe7eb");
         primaryStage.show();
 
         //action on shortcuts
 
-        KeyCombination ctrlA = KeyCodeCombination.keyCombination("Ctrl+A") ;
-        main.setOnKeyPressed(e->{
+        root.setOnKeyPressed(e->{
             if (e.getCode() == KeyCode.DELETE ){
                 int id  =  RightPane.tableView.getSelectionModel().getSelectedItem().getId();
                 if (id > -1 ){
                     DbQueries.deleteItem(id);
                 }
             }
-            else if(e.getCode() == KeyCode.U && e.isControlDown()){
-                DbQueries.deleteUser("all");
-            }
-            else if (e.getCode() == KeyCode.I && e.isControlDown()){
-                DbQueries.deleteItem(-1);
-            }
-            else if (ctrlA.match(e)){
-                System.out.println("Ctrl+A");
-            }
-
         });
 
-        lp.prefWidthProperty().bind(primaryStage.widthProperty().multiply(0.4));
-        rp.prefWidthProperty().bind(primaryStage.widthProperty().multiply(0.6));
+        menuPane.prefHeightProperty().bind(root.heightProperty().multiply(0.2));
+        statusPane.prefHeightProperty().bind(root.heightProperty().multiply(0.2));
+        panes.prefHeightProperty().bind(root.heightProperty().subtract(
+                menuPane.heightProperty().add(statusPane.heightProperty()).get() ));
+
+
+        lp.prefWidthProperty().bind(root.widthProperty().multiply(0.4));
+        rp.prefWidthProperty().bind(root.widthProperty().multiply(0.6));
 
         primaryStage.setOnCloseRequest(e->{
             DbConnection.disconnect();
             Platform.exit();
         });
-        main.requestFocus();
+        root.requestFocus();
 
     }
 }

@@ -7,6 +7,8 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.Pane;
 
 /**
@@ -45,25 +47,30 @@ public class MenuPane  extends Pane {
 
 
         //actions
+        exit.setAccelerator(KeyCombination.keyCombination("Ctrl+X"));
         exit.setOnAction(e->{
             DbConnection.disconnect();
             Platform.exit();
         });
+
         controlUser.setOnAction(e->{
             ControlUser.control();
         });
 
+        deleteAllItem.setAccelerator(KeyCombination.keyCombination("Ctrl+I"));
         deleteAllItem.setOnAction(e->{
             DbQueries.deleteItem(-1);
             Home.status.setText("delete All item from DataBase");
             refresh();
         });
 
+        refresh.setAccelerator(KeyCombination.keyCombination("Ctrl+R"));
         refresh.setOnAction(e->{
             refresh();
             Home.status.setText("Refresh ");
         });
 
+        deleteAllUser.setAccelerator(KeyCombination.keyCombination("Ctrl+U"));
         deleteAllUser.setOnAction(e->{
             DbQueries.deleteUser("all");
             refresh();
