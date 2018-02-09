@@ -9,6 +9,7 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 
+
 /**
  * this is
  * Created by mo3tamed on 1/29/18.
@@ -82,14 +83,15 @@ public class MenuPane  extends Pane {
         });
         about.setOnAction(e->{
             dialog.setContentText(infoPane.help);
-            dialog.initModality(Modality.NONE);
-            dialog.showAndWait();
+         //   dialog.initModality(Modality.NONE);
             dialog.getDialogPane().getChildren().add(new Button("sss")) ;
-            dialog.setOnCloseRequest(ev->dialog.close());
+            dialog.showAndWait();
+            
 
             //infoPane.aboutStage();
         });
         help.setOnAction(e->{
+
             infoPane.helpStage();
         });
     }
