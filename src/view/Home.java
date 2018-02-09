@@ -72,7 +72,6 @@ public class Home extends Application  {
 
         //action on shortcuts
 
-        KeyCombination ctrlA = KeyCodeCombination.keyCombination("Ctrl+A") ;
         root.setOnKeyPressed(e->{
             if (e.getCode() == KeyCode.DELETE ){
                 int id  =  RightPane.tableView.getSelectionModel().getSelectedItem().getId();
@@ -80,16 +79,6 @@ public class Home extends Application  {
                     DbQueries.deleteItem(id);
                 }
             }
-            else if(e.getCode() == KeyCode.U && e.isControlDown()){
-                DbQueries.deleteUser("all");
-            }
-            else if (e.getCode() == KeyCode.I && e.isControlDown()){
-                DbQueries.deleteItem(-1);
-            }
-            else if (ctrlA.match(e)){
-                System.out.println("Ctrl+A");
-            }
-
         });
 
         menuPane.prefHeightProperty().bind(root.heightProperty().multiply(0.2));
