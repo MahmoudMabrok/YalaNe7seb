@@ -7,8 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cba3165-327a-4914-8c9b-dfaf65b48504" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/YalaNe7seb/view/Home.class" afterPath="$PROJECT_DIR$/out/production/YalaNe7seb/view/Home.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/YalaNe7seb/view/LeftPane.class" afterPath="$PROJECT_DIR$/out/production/YalaNe7seb/view/LeftPane.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/YalaNe7seb/view/RightPane.class" afterPath="$PROJECT_DIR$/out/production/YalaNe7seb/view/RightPane.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/LeftPane.java" afterPath="$PROJECT_DIR$/src/view/LeftPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data.db" afterPath="$PROJECT_DIR$/Data.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/Home.java" afterPath="$PROJECT_DIR$/src/view/Home.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/RightPane.java" afterPath="$PROJECT_DIR$/src/view/RightPane.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -45,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RightPane.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RightPane.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/RightPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="63" column="49" lean-forward="false" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
+            <state relative-caret-position="220">
+              <caret line="59" column="57" lean-forward="false" selection-start-line="59" selection-start-column="57" selection-end-line="59" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -67,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Home.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Home.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/Home.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="75" column="25" lean-forward="false" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
+            <state relative-caret-position="274">
+              <caret line="97" column="84" lean-forward="false" selection-start-line="97" selection-start-column="84" selection-end-line="97" selection-end-column="84" />
               <folding />
             </state>
           </provider>
@@ -223,13 +227,13 @@
         <option value="$PROJECT_DIR$/src/view/StaticsPane.java" />
         <option value="$PROJECT_DIR$/src/view/StatisticPane.java" />
         <option value="$PROJECT_DIR$/src/view/ControlUser.java" />
-        <option value="$PROJECT_DIR$/src/view/Home.java" />
         <option value="$PROJECT_DIR$/Data.db" />
         <option value="$PROJECT_DIR$/src/controllor/DbQueries.java" />
         <option value="$PROJECT_DIR$/src/view/MenuPane.java" />
         <option value="$PROJECT_DIR$/src/view/infoPane.java" />
-        <option value="$PROJECT_DIR$/src/view/RightPane.java" />
         <option value="$PROJECT_DIR$/src/view/LeftPane.java" />
+        <option value="$PROJECT_DIR$/src/view/RightPane.java" />
+        <option value="$PROJECT_DIR$/src/view/Home.java" />
       </list>
     </option>
   </component>
@@ -826,7 +830,7 @@
       <workItem from="1517946804980" duration="88000" />
       <workItem from="1518026704875" duration="5476000" />
       <workItem from="1518081461619" duration="1607000" />
-      <workItem from="1518150197528" duration="760000" />
+      <workItem from="1518150197528" duration="2763000" />
     </task>
     <task id="LOCAL-00001" summary="intial">
       <created>1516607329024</created>
@@ -975,11 +979,18 @@
       <option name="project" value="LOCAL" />
       <updated>1518031586902</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="before modification&#10;">
+      <created>1518151619487</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1518151619487</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111487000" />
+    <option name="totallyTimeSpent" value="113490000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -997,12 +1008,13 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3268921" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3236715" sideWeight="0.5030211" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29146537" sideWeight="0.49697885" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28990227" sideWeight="0.49697885" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33224756" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1020,7 +1032,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3268921" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="146" y="193" width="1170" height="540" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3252818" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1054,7 +1065,8 @@
     <MESSAGE value="update UI &#10;change to TextArea&#10;re-arrange nodes" />
     <MESSAGE value="add help&amp;about stage" />
     <MESSAGE value="before data textArea" />
-    <option name="LAST_COMMIT_MESSAGE" value="before data textArea" />
+    <MESSAGE value="before modification&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="before modification&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1417,18 +1429,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/Home.java">
+    <entry file="file://$PROJECT_DIR$/src/view/RightPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="75" column="25" lean-forward="false" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
+        <state relative-caret-position="220">
+          <caret line="59" column="57" lean-forward="false" selection-start-line="59" selection-start-column="57" selection-end-line="59" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/RightPane.java">
+    <entry file="file://$PROJECT_DIR$/src/view/Home.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="63" column="49" lean-forward="false" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
+        <state relative-caret-position="274">
+          <caret line="97" column="84" lean-forward="false" selection-start-line="97" selection-start-column="84" selection-end-line="97" selection-end-column="84" />
           <folding />
         </state>
       </provider>

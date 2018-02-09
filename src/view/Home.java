@@ -50,18 +50,22 @@ public class Home extends Application  {
 
          DbQueries.creatDb(); //create db
 
-        BorderPane main = new BorderPane() ;
+     //   BorderPane main = new BorderPane() ;
+        VBox root = new VBox(10) ;
         System.out.println(DbQueries.getSumOfPrices("month" , "01"));
 
-        HBox panes = new HBox(25) ;
+        HBox panes = new HBox() ;
         panes.getChildren().addAll(lp ,rp  ) ;
         panes.setStyle("-fx-background-color: antiquewhite");
+        Pane statusPane = new Pane(status) ;
 
-        main.setCenter(panes);
+        root.getChildren().addAll(menuPane , panes , statusPane) ;
+
+       /* main.setCenter(panes);
         main.setBottom(status);
-        main.setTop(menuPane);
+        main.setTop(menuPane);*/
 
-        Scene scene =new Scene(main) ;
+        Scene scene =new Scene(root) ;
         primaryStage.setScene(scene);
         primaryStage.setTitle("YalaNe7eb");
         primaryStage.show();
@@ -69,7 +73,7 @@ public class Home extends Application  {
         //action on shortcuts
 
         KeyCombination ctrlA = KeyCodeCombination.keyCombination("Ctrl+A") ;
-        main.setOnKeyPressed(e->{
+        root.setOnKeyPressed(e->{
             if (e.getCode() == KeyCode.DELETE ){
                 int id  =  RightPane.tableView.getSelectionModel().getSelectedItem().getId();
                 if (id > -1 ){
@@ -88,6 +92,12 @@ public class Home extends Application  {
 
         });
 
+        menuPane.prefHeightProperty().bind(root.heightProperty().multiply(0.2));
+        statusPane.prefHeightProperty().bind(root.heightProperty().multiply(0.2));
+        panes.prefHeightProperty().bind(root.heightProperty().subtract(
+                menuPane.heightProperty().add(statusPane.heightProperty()).get() ));
+
+
         lp.prefWidthProperty().bind(primaryStage.widthProperty().multiply(0.4));
         rp.prefWidthProperty().bind(primaryStage.widthProperty().multiply(0.6));
 
@@ -95,7 +105,7 @@ public class Home extends Application  {
             DbConnection.disconnect();
             Platform.exit();
         });
-        main.requestFocus();
+        root.requestFocus();
 
     }
 }
