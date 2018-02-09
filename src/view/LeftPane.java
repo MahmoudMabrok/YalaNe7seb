@@ -3,9 +3,7 @@ package view;
 import controllor.DbQueries;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -16,7 +14,8 @@ import javafx.scene.layout.VBox;
 public class LeftPane extends VBox {
 
     HBox addUserPane = new HBox(5);
-    TextField tfDescription;
+  //  TextField descriptionInput;
+    TextArea descriptionInput;
     TextField tfPrice;
     ComboBox<String> cbUser;
     Button btnAddItem;
@@ -30,7 +29,11 @@ public class LeftPane extends VBox {
         btnUpdateItem = new Button("Update user ");
         btnDeleteItem = new Button("Delete  item ");
 
-        tfDescription = new TextField();
+        descriptionInput = new TextArea();
+        ScrollPane descriptionPane = new ScrollPane(descriptionInput) ;
+        descriptionPane.setMaxHeight(100);
+        descriptionPane.prefWidthProperty().bind(this.widthProperty().multiply(0.85));
+
         tfPrice = new TextField();
         cbUser = new ComboBox<>();
         btnAddItem = new Button("Add Item ");
@@ -41,7 +44,7 @@ public class LeftPane extends VBox {
         setAlignment(Pos.CENTER);
         btnAddItem.setAlignment(Pos.CENTER);
 
-        tfDescription.setPromptText("Items");
+        descriptionInput.setPromptText("Items");
         tfPrice.setPromptText("Price");
         //cbUser.setValue("Users");
         cbUser.setPromptText("Enter User");
@@ -49,7 +52,7 @@ public class LeftPane extends VBox {
         cbUser.getItems().setAll(DbQueries.getAllUser());
         cbUser.setMinWidth(150);
 
-        getChildren().addAll(tfDescription, tfPrice, cbUser,
+        getChildren().addAll( cbUser,tfPrice , descriptionPane,
                 btnAddItem, btnUpdateItem, btnDeleteItem);
 
         //actions
@@ -59,7 +62,7 @@ public class LeftPane extends VBox {
             try {
                 String user = cbUser.getValue().toString();
                 if (user.length() > 0 ) {
-                    String description = tfDescription.getText().toString();
+                    String description = descriptionInput.getText().toString();
                     double price = Double.parseDouble(tfPrice.getText().toString());
                     DbQueries.addItem(user, DbQueries.getLastId() + 1, description, price);
                     Home.lp.setAllBlank();
@@ -74,11 +77,11 @@ public class LeftPane extends VBox {
         btnUpdateItem.setOnAction(e -> {
             int id = RightPane.tableView.getSelectionModel().getSelectedItem().getId();
             DbQueries.updateItem(cbUser.getValue().toString(),
-                    id, tfDescription.getText(),
+                    id, descriptionInput.getText(),
                     Double.parseDouble(tfPrice.getText()));
             Home.lp.setAllBlank();
-
         });
+
         btnDeleteItem.setOnAction(e -> {
             int id = RightPane.tableView.getSelectionModel().getSelectedItem().getId();
             DbQueries.deleteItem(id);
@@ -88,7 +91,7 @@ public class LeftPane extends VBox {
     }
 
     public void setAllBlank() {
-        tfDescription.setText("");
+        descriptionInput.setText("");
         tfPrice.setText("");
         cbUser.setValue("");
 
