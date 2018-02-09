@@ -2,10 +2,12 @@ package controllor;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.layout.HBox;
 import model.Item;
 import model.User;
 import view.Home;
 import view.MenuPane;
+import view.RightPane;
 
 import java.sql.*;
 
@@ -125,6 +127,9 @@ public class DbQueries {
             rs.close();
             statement.close();
             System.out.println("add All items   succussfuly ");
+
+            //call allPayment to update text in right pane
+            RightPane.data.setText(view.StatisticPane.allPayments());
         }catch (SQLException s)
         {
             System.out.println(s);

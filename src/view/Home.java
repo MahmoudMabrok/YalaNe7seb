@@ -28,7 +28,7 @@ import java.util.Date;
 public class Home extends Application  {
 
      static   LeftPane lp  ; // public to be seen outside package
-     static RightPane rp  ;
+    static RightPane rp  ;
      MenuPane menuPane = new MenuPane() ;
 
 
@@ -98,8 +98,8 @@ public class Home extends Application  {
                 menuPane.heightProperty().add(statusPane.heightProperty()).get() ));
 
 
-        lp.prefWidthProperty().bind(primaryStage.widthProperty().multiply(0.4));
-        rp.prefWidthProperty().bind(primaryStage.widthProperty().multiply(0.6));
+        lp.prefWidthProperty().bind(root.widthProperty().multiply(0.4));
+        rp.prefWidthProperty().bind(root.widthProperty().multiply(0.6));
 
         primaryStage.setOnCloseRequest(e->{
             DbConnection.disconnect();

@@ -7,13 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cba3165-327a-4914-8c9b-dfaf65b48504" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/YalaNe7seb/controllor/DbQueries.class" afterPath="$PROJECT_DIR$/out/production/YalaNe7seb/controllor/DbQueries.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/YalaNe7seb/view/Home.class" afterPath="$PROJECT_DIR$/out/production/YalaNe7seb/view/Home.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/YalaNe7seb/view/LeftPane.class" afterPath="$PROJECT_DIR$/out/production/YalaNe7seb/view/LeftPane.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/YalaNe7seb/view/RightPane.class" afterPath="$PROJECT_DIR$/out/production/YalaNe7seb/view/RightPane.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/YalaNe7seb/view/StatisticPane.class" afterPath="$PROJECT_DIR$/out/production/YalaNe7seb/view/StatisticPane.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data.db" afterPath="$PROJECT_DIR$/Data.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllor/DbQueries.java" afterPath="$PROJECT_DIR$/src/controllor/DbQueries.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/Home.java" afterPath="$PROJECT_DIR$/src/view/Home.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/LeftPane.java" afterPath="$PROJECT_DIR$/src/view/LeftPane.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/RightPane.java" afterPath="$PROJECT_DIR$/src/view/RightPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/StatisticPane.java" afterPath="$PROJECT_DIR$/src/view/StatisticPane.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,8 +57,8 @@
       <file leaf-file-name="RightPane.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/RightPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="59" column="57" lean-forward="false" selection-start-line="59" selection-start-column="57" selection-end-line="59" selection-end-column="57" />
+            <state relative-caret-position="217">
+              <caret line="25" column="12" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -62,20 +67,18 @@
       <file leaf-file-name="infoPane.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/infoPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="972">
+            <state relative-caret-position="346">
               <caret line="62" column="32" lean-forward="false" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Home.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Home.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/Home.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="97" column="84" lean-forward="false" selection-start-line="97" selection-start-column="84" selection-end-line="97" selection-end-column="84" />
+            <state relative-caret-position="144">
+              <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -84,45 +87,46 @@
       <file leaf-file-name="LeftPane.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/LeftPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="52" column="32" lean-forward="true" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
-              <folding />
+            <state relative-caret-position="720">
+              <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DbQueries.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DbQueries.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controllor/DbQueries.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4158">
-              <caret line="238" column="27" lean-forward="false" selection-start-line="238" selection-start-column="27" selection-end-line="238" selection-end-column="27" />
+            <state relative-caret-position="346">
+              <caret line="131" column="69" lean-forward="false" selection-start-line="131" selection-start-column="69" selection-end-line="131" selection-end-column="69" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <marker date="1517486640810" expanded="true" signature="582:606" ph="PRAGMA forei... " />
-                <marker date="1517486640810" expanded="true" signature="687:782" ph="create table... USER" />
-                <marker date="1517486640810" expanded="true" signature="823:1068" ph="create table... ITEM" />
-                <marker date="1517486640810" expanded="true" signature="1608:1632" ph="select max(i... ITEM" />
-                <marker date="1517486640810" expanded="true" signature="2058:2097" ph="insert into USER... " />
-                <marker date="1517486640810" expanded="true" signature="2780:2798" ph="SELECT date(... " />
-                <marker date="1517486640810" expanded="true" signature="2919:2959" ph="insert into ITEM... " />
-                <marker date="1517486640810" expanded="true" signature="3776:3794" ph="select * fro... ITEM" />
-                <marker date="1517486640810" expanded="true" signature="4653:4686" ph="select * fro... ITEM" />
-                <marker date="1517486640810" expanded="true" signature="4653:4697" ph="select * fro... ITEM" />
-                <marker date="1517486640810" expanded="true" signature="5318:5351" ph="DELETE FROM " />
-                <marker date="1517486640810" expanded="true" signature="5318:5364" ph="DELETE FROM " />
-                <marker date="1517486640810" expanded="true" signature="5880:5897" ph="DELETE from " />
-                <marker date="1517486640810" expanded="true" signature="5970:6015" ph="DELETE from " />
-                <marker date="1517486640810" expanded="true" signature="6871:6901" ph="DELETE FROM " />
-                <marker date="1517486640810" expanded="true" signature="7203:7220" ph="DELETE from " />
-                <marker date="1517486640810" expanded="true" signature="7758:7799" ph="update ITEM " />
-                <marker date="1517486640810" expanded="true" signature="8220:8310" ph="update ITEM " />
-                <marker date="1517486640810" expanded="true" signature="9207:9234" ph="select sum(p... ITEM" />
-                <marker date="1517486640810" expanded="true" signature="9339:9379" ph="SELECT sum(p... ITEM" />
-                <marker date="1517486640810" expanded="true" signature="9339:9382" ph="SELECT sum(p... ITEM" />
-                <marker date="1517486640810" expanded="true" signature="9339:9392" ph="SELECT sum(p... ITEM" />
-                <marker date="1517486640810" expanded="true" signature="9522:9572" ph="SELECT sum(p... ITEM" />
-                <marker date="1517486640810" expanded="true" signature="9522:9584" ph="SELECT sum(p... ITEM" />
-                <marker date="1517486640810" expanded="true" signature="10055:10073" ph="select * fro... USER" />
+                <marker date="1518154549448" expanded="true" signature="638:662" ph="PRAGMA forei... " />
+                <marker date="1518154549448" expanded="true" signature="743:838" ph="create table... USER" />
+                <marker date="1518154549448" expanded="true" signature="879:1124" ph="create table... ITEM" />
+                <marker date="1518154549448" expanded="true" signature="1664:1688" ph="select max(i... ITEM" />
+                <marker date="1518154549448" expanded="true" signature="2114:2153" ph="insert into USER... " />
+                <marker date="1518154549448" expanded="true" signature="2836:2854" ph="SELECT date(... " />
+                <marker date="1518154549448" expanded="true" signature="2975:3015" ph="insert into ITEM... " />
+                <marker date="1518154549448" expanded="true" signature="3832:3850" ph="select * fro... ITEM" />
+                <marker date="1518154549448" expanded="true" signature="4839:4872" ph="select * fro... ITEM" />
+                <marker date="1518154549448" expanded="true" signature="4839:4883" ph="select * fro... ITEM" />
+                <marker date="1518154549448" expanded="true" signature="5504:5537" ph="DELETE FROM " />
+                <marker date="1518154549448" expanded="true" signature="5504:5550" ph="DELETE FROM " />
+                <marker date="1518154549448" expanded="true" signature="6066:6083" ph="DELETE from " />
+                <marker date="1518154549448" expanded="true" signature="6156:6201" ph="DELETE from " />
+                <marker date="1518154549448" expanded="true" signature="7057:7087" ph="DELETE FROM " />
+                <marker date="1518154549448" expanded="true" signature="7389:7406" ph="DELETE from " />
+                <marker date="1518154549448" expanded="true" signature="7944:7985" ph="update ITEM " />
+                <marker date="1518154549448" expanded="true" signature="8406:8496" ph="update ITEM " />
+                <marker date="1518154549448" expanded="true" signature="9393:9420" ph="select sum(p... ITEM" />
+                <marker date="1518154549448" expanded="true" signature="9525:9565" ph="SELECT sum(p... ITEM" />
+                <marker date="1518154549448" expanded="true" signature="9525:9568" ph="SELECT sum(p... ITEM" />
+                <marker date="1518154549448" expanded="true" signature="9525:9578" ph="SELECT sum(p... ITEM" />
+                <marker date="1518154549448" expanded="true" signature="9708:9758" ph="SELECT sum(p... ITEM" />
+                <marker date="1518154549448" expanded="true" signature="9708:9770" ph="SELECT sum(p... ITEM" />
+                <marker date="1518154549448" expanded="true" signature="10241:10259" ph="select * fro... USER" />
               </folding>
             </state>
           </provider>
@@ -155,11 +159,9 @@
       <file leaf-file-name="StatisticPane.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/StatisticPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="58" column="27" lean-forward="false" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state relative-caret-position="40">
+              <caret line="50" column="34" lean-forward="false" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -225,15 +227,15 @@
         <option value="$PROJECT_DIR$/src/DataBase.java" />
         <option value="$PROJECT_DIR$/src/model/Item.java" />
         <option value="$PROJECT_DIR$/src/view/StaticsPane.java" />
-        <option value="$PROJECT_DIR$/src/view/StatisticPane.java" />
         <option value="$PROJECT_DIR$/src/view/ControlUser.java" />
         <option value="$PROJECT_DIR$/Data.db" />
-        <option value="$PROJECT_DIR$/src/controllor/DbQueries.java" />
         <option value="$PROJECT_DIR$/src/view/MenuPane.java" />
         <option value="$PROJECT_DIR$/src/view/infoPane.java" />
         <option value="$PROJECT_DIR$/src/view/LeftPane.java" />
-        <option value="$PROJECT_DIR$/src/view/RightPane.java" />
+        <option value="$PROJECT_DIR$/src/view/StatisticPane.java" />
         <option value="$PROJECT_DIR$/src/view/Home.java" />
+        <option value="$PROJECT_DIR$/src/view/RightPane.java" />
+        <option value="$PROJECT_DIR$/src/controllor/DbQueries.java" />
       </list>
     </option>
   </component>
@@ -317,6 +319,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="YalaNe7seb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="YalaNe7seb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="META-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="YalaNe7seb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="YalaNe7seb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -830,7 +872,7 @@
       <workItem from="1517946804980" duration="88000" />
       <workItem from="1518026704875" duration="5476000" />
       <workItem from="1518081461619" duration="1607000" />
-      <workItem from="1518150197528" duration="2763000" />
+      <workItem from="1518150197528" duration="3992000" />
     </task>
     <task id="LOCAL-00001" summary="intial">
       <created>1516607329024</created>
@@ -986,11 +1028,18 @@
       <option name="project" value="LOCAL" />
       <updated>1518151619487</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="ui using Vbox&#10;">
+      <created>1518153621427</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1518153621427</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113490000" />
+    <option name="totallyTimeSpent" value="114719000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1066,7 +1115,8 @@
     <MESSAGE value="add help&amp;about stage" />
     <MESSAGE value="before data textArea" />
     <MESSAGE value="before modification&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="before modification&#10;" />
+    <MESSAGE value="ui using Vbox&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="ui using Vbox&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1366,82 +1416,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/infoPane.java">
+    <entry file="file://$PROJECT_DIR$/src/view/LeftPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="972">
-          <caret line="62" column="32" lean-forward="false" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+        <state relative-caret-position="720">
+          <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/StatisticPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="58" column="27" lean-forward="false" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllor/DbQueries.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4158">
-          <caret line="238" column="27" lean-forward="false" selection-start-line="238" selection-start-column="27" selection-end-line="238" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <marker date="1517486640810" expanded="true" signature="582:606" ph="PRAGMA forei... " />
-            <marker date="1517486640810" expanded="true" signature="687:782" ph="create table... USER" />
-            <marker date="1517486640810" expanded="true" signature="823:1068" ph="create table... ITEM" />
-            <marker date="1517486640810" expanded="true" signature="1608:1632" ph="select max(i... ITEM" />
-            <marker date="1517486640810" expanded="true" signature="2058:2097" ph="insert into USER... " />
-            <marker date="1517486640810" expanded="true" signature="2780:2798" ph="SELECT date(... " />
-            <marker date="1517486640810" expanded="true" signature="2919:2959" ph="insert into ITEM... " />
-            <marker date="1517486640810" expanded="true" signature="3776:3794" ph="select * fro... ITEM" />
-            <marker date="1517486640810" expanded="true" signature="4653:4686" ph="select * fro... ITEM" />
-            <marker date="1517486640810" expanded="true" signature="4653:4697" ph="select * fro... ITEM" />
-            <marker date="1517486640810" expanded="true" signature="5318:5351" ph="DELETE FROM " />
-            <marker date="1517486640810" expanded="true" signature="5318:5364" ph="DELETE FROM " />
-            <marker date="1517486640810" expanded="true" signature="5880:5897" ph="DELETE from " />
-            <marker date="1517486640810" expanded="true" signature="5970:6015" ph="DELETE from " />
-            <marker date="1517486640810" expanded="true" signature="6871:6901" ph="DELETE FROM " />
-            <marker date="1517486640810" expanded="true" signature="7203:7220" ph="DELETE from " />
-            <marker date="1517486640810" expanded="true" signature="7758:7799" ph="update ITEM " />
-            <marker date="1517486640810" expanded="true" signature="8220:8310" ph="update ITEM " />
-            <marker date="1517486640810" expanded="true" signature="9207:9234" ph="select sum(p... ITEM" />
-            <marker date="1517486640810" expanded="true" signature="9339:9379" ph="SELECT sum(p... ITEM" />
-            <marker date="1517486640810" expanded="true" signature="9339:9382" ph="SELECT sum(p... ITEM" />
-            <marker date="1517486640810" expanded="true" signature="9339:9392" ph="SELECT sum(p... ITEM" />
-            <marker date="1517486640810" expanded="true" signature="9522:9572" ph="SELECT sum(p... ITEM" />
-            <marker date="1517486640810" expanded="true" signature="9522:9584" ph="SELECT sum(p... ITEM" />
-            <marker date="1517486640810" expanded="true" signature="10055:10073" ph="select * fro... USER" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/LeftPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="52" column="32" lean-forward="true" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
+        <state relative-caret-position="40">
+          <caret line="50" column="34" lean-forward="false" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/RightPane.java">
+    <entry file="file://$PROJECT_DIR$/src/view/infoPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="59" column="57" lean-forward="false" selection-start-line="59" selection-start-column="57" selection-end-line="59" selection-end-column="57" />
+        <state relative-caret-position="346">
+          <caret line="62" column="32" lean-forward="false" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/Home.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="97" column="84" lean-forward="false" selection-start-line="97" selection-start-column="84" selection-end-line="97" selection-end-column="84" />
+        <state relative-caret-position="144">
+          <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/RightPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="25" column="12" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllor/DbQueries.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="131" column="69" lean-forward="false" selection-start-line="131" selection-start-column="69" selection-end-line="131" selection-end-column="69" />
+          <folding>
+            <marker date="1518154549448" expanded="true" signature="638:662" ph="PRAGMA forei... " />
+            <marker date="1518154549448" expanded="true" signature="743:838" ph="create table... USER" />
+            <marker date="1518154549448" expanded="true" signature="879:1124" ph="create table... ITEM" />
+            <marker date="1518154549448" expanded="true" signature="1664:1688" ph="select max(i... ITEM" />
+            <marker date="1518154549448" expanded="true" signature="2114:2153" ph="insert into USER... " />
+            <marker date="1518154549448" expanded="true" signature="2836:2854" ph="SELECT date(... " />
+            <marker date="1518154549448" expanded="true" signature="2975:3015" ph="insert into ITEM... " />
+            <marker date="1518154549448" expanded="true" signature="3832:3850" ph="select * fro... ITEM" />
+            <marker date="1518154549448" expanded="true" signature="4839:4872" ph="select * fro... ITEM" />
+            <marker date="1518154549448" expanded="true" signature="4839:4883" ph="select * fro... ITEM" />
+            <marker date="1518154549448" expanded="true" signature="5504:5537" ph="DELETE FROM " />
+            <marker date="1518154549448" expanded="true" signature="5504:5550" ph="DELETE FROM " />
+            <marker date="1518154549448" expanded="true" signature="6066:6083" ph="DELETE from " />
+            <marker date="1518154549448" expanded="true" signature="6156:6201" ph="DELETE from " />
+            <marker date="1518154549448" expanded="true" signature="7057:7087" ph="DELETE FROM " />
+            <marker date="1518154549448" expanded="true" signature="7389:7406" ph="DELETE from " />
+            <marker date="1518154549448" expanded="true" signature="7944:7985" ph="update ITEM " />
+            <marker date="1518154549448" expanded="true" signature="8406:8496" ph="update ITEM " />
+            <marker date="1518154549448" expanded="true" signature="9393:9420" ph="select sum(p... ITEM" />
+            <marker date="1518154549448" expanded="true" signature="9525:9565" ph="SELECT sum(p... ITEM" />
+            <marker date="1518154549448" expanded="true" signature="9525:9568" ph="SELECT sum(p... ITEM" />
+            <marker date="1518154549448" expanded="true" signature="9525:9578" ph="SELECT sum(p... ITEM" />
+            <marker date="1518154549448" expanded="true" signature="9708:9758" ph="SELECT sum(p... ITEM" />
+            <marker date="1518154549448" expanded="true" signature="9708:9770" ph="SELECT sum(p... ITEM" />
+            <marker date="1518154549448" expanded="true" signature="10241:10259" ph="select * fro... USER" />
+          </folding>
         </state>
       </provider>
     </entry>
