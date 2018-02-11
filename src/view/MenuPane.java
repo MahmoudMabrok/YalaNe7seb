@@ -88,7 +88,7 @@ public class MenuPane  extends Pane {
         });
         help.setAccelerator(KeyCombination.keyCombination("Ctrl+H"));
         help.setOnAction(e->{
-            dialog.setTitle("About");
+            dialog.setTitle("Help");
             dialog.setContentText(infoPane.help);
             dialog.showAndWait();
         });
@@ -97,9 +97,7 @@ public class MenuPane  extends Pane {
     public static  void refresh(){
         RightPane.tableView.getItems().setAll(DbQueries.getAllItems()) ;
         Home.lp.cbUser.getItems().setAll(DbQueries.getAllUser()) ;
-
         System.out.println("DbQueries.getAllUser() = " + DbQueries.getAllUser());
-       // Home.lp.cbUser.setValue("");
         Home.lp.cbUser.setPromptText("Enter User");
         Home.lp.setAllBlank();
 
