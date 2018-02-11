@@ -33,8 +33,7 @@ public class StatisticPane {
                 "-fx-border-width:8px");
 
         String[] options = new String[]{"Total Cost", "cost of User",
-                "cost of month", "cost from date",
-                "Number of items"};
+                "cost of month", "cost from date"};
         ComboBox<String> choices = new ComboBox<>();
         choices.getItems().setAll(Arrays.asList(options));
         Text welcome = new Text("Welecome to Statistic Page ^_^");
@@ -63,7 +62,26 @@ public class StatisticPane {
                                 DbQueries.getSumOfPrices("user", input.getText()));
                     });
                     break;
-                case  "" :
+                case  "cost of month" :
+                    input.setVisible(true);
+                    hint.setVisible(true);
+                    hint.setText("Now enter month (00,01 ,02 ,....,12) then ENTER");
+                    input.setOnAction(event->{
+                        String month = input.getText() ;
+                    area.setText("cost of " + month +" is " +
+                            DbQueries.getSumOfPrices("month" , month));
+                    });
+                    break;
+                case "cost from date":
+                    input.setVisible(true);
+                    hint.setVisible(true);
+                    hint.setText("Enter date (YYYY-MM-DD for example 2012-08-20)");
+                    input.setOnAction(event->{
+                        String date = input.getText() ;
+                        area.setText("cost from " + date +" is " +
+                                DbQueries.getSumOfPrices("monthFrom" , date));
+                    });
+
 
 
                 default:

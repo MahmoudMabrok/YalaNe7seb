@@ -3,13 +3,12 @@ package view;
 import controllor.DbConnection;
 import controllor.DbQueries;
 import javafx.application.Platform;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
+
 
 /**
  * this is
@@ -20,31 +19,32 @@ public class MenuPane  extends Pane {
     public MenuPane() {
 
         MenuBar main = new MenuBar() ;
-
         Menu file = new Menu("_File");
-
         MenuItem controlUser = new MenuItem("controlUsers") ;
         MenuItem statics = new MenuItem("Statics") ;
         MenuItem exit = new MenuItem("exit") ;
-        file.getItems().addAll(controlUser , new SeparatorMenuItem(),statics, new SeparatorMenuItem(), exit) ;
+        file.getItems().addAll(controlUser , new SeparatorMenuItem(),statics,
+                new SeparatorMenuItem(), exit) ;
 
         Menu helpMenu = new Menu("_Help") ;
+        Dialog dialog = new Alert(Alert.AlertType.INFORMATION);
+        dialog.setHeaderText("Welcome !!! ");
+        DialogPane dpane =dialog.getDialogPane();
+        dpane.getChildren().remove(dpane.getChildren().size()-1);
+
         MenuItem  about = new MenuItem("About") ;
         MenuItem help = new MenuItem("help") ;
         helpMenu.getItems().addAll( about,help ) ;
 
         Menu options = new Menu("_Options") ;
-        MenuItem deleteAllItem = new MenuItem("Delete Items    ctrl+i ");
-        MenuItem deleteAllUser = new MenuItem("Delete Users   ctrl+u ");
-        MenuItem refresh = new MenuItem("Refresh ctrl+r");
-
+        MenuItem deleteAllItem = new MenuItem("Delete Items");
+        MenuItem deleteAllUser = new MenuItem("Delete Users");
+        MenuItem refresh = new MenuItem("Refresh");
 
         options.getItems().addAll(deleteAllItem , deleteAllUser ,refresh) ;
 
         main.getMenus().addAll(file  , options, helpMenu) ;
         getChildren().addAll(main) ;
-
-
 
         //actions
         exit.setAccelerator(KeyCombination.keyCombination("Ctrl+X"));
@@ -53,6 +53,7 @@ public class MenuPane  extends Pane {
             Platform.exit();
         });
 
+        controlUser.setAccelerator(KeyCombination.keyCombination("Ctrl+A"));
         controlUser.setOnAction(e->{
             ControlUser.control();
         });
@@ -75,14 +76,21 @@ public class MenuPane  extends Pane {
             DbQueries.deleteUser("all");
             refresh();
         });
+        statics.setAccelerator(KeyCombination.keyCombination("Ctrl+S"));
         statics.setOnAction(e->{
             StatisticPane.showStatisticStage();
         });
+        about.setAccelerator(KeyCombination.keyCombination("Ctrl+B"));
         about.setOnAction(e->{
-            infoPane.aboutStage();
+            dialog.setTitle("About");
+            dialog.setContentText(infoPane.about);
+            dialog.showAndWait();
         });
+        help.setAccelerator(KeyCombination.keyCombination("Ctrl+H"));
         help.setOnAction(e->{
-            infoPane.helpStage();
+            dialog.setTitle("About");
+            dialog.setContentText(infoPane.help);
+            dialog.showAndWait();
         });
     }
 

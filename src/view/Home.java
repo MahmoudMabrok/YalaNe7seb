@@ -48,31 +48,35 @@ public class Home extends Application  {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-         DbQueries.creatDb(); //create db
+        DbQueries.creatDb(); //create db
 
-     //   BorderPane main = new BorderPane() ;
-        VBox root = new VBox(10) ;
+        BorderPane main = new BorderPane() ;
+      //  VBox root = new VBox(10) ;
         System.out.println(DbQueries.getSumOfPrices("month" , "01"));
 
         HBox panes = new HBox() ;
         panes.getChildren().addAll(lp ,rp  ) ;
         panes.setStyle("-fx-background-color: antiquewhite");
-        Pane statusPane = new Pane(status) ;
+      //  Pane statusPane = new Pane(status) ;
 
-        root.getChildren().addAll(menuPane , panes , statusPane) ;
+       /*statusPane.setMaxHeight(30);
+       statusPane.setMinHeight(10);*/
 
-       /* main.setCenter(panes);
+
+      //  root.getChildren().addAll(menuPane , panes , statusPane) ;
+
+        main.setCenter(panes);
         main.setBottom(status);
-        main.setTop(menuPane);*/
+        main.setTop(menuPane);
 
-        Scene scene =new Scene(root) ;
+        Scene scene =new Scene(main) ;
         primaryStage.setScene(scene);
         primaryStage.setTitle("YalaNe7eb");
         primaryStage.show();
 
         //action on shortcuts
 
-        root.setOnKeyPressed(e->{
+        main.setOnKeyPressed(e->{
             if (e.getCode() == KeyCode.DELETE ){
                 int id  =  RightPane.tableView.getSelectionModel().getSelectedItem().getId();
                 if (id > -1 ){
@@ -81,20 +85,19 @@ public class Home extends Application  {
             }
         });
 
-        menuPane.prefHeightProperty().bind(root.heightProperty().multiply(0.2));
-        statusPane.prefHeightProperty().bind(root.heightProperty().multiply(0.2));
-        panes.prefHeightProperty().bind(root.heightProperty().subtract(
-                menuPane.heightProperty().add(statusPane.heightProperty()).get() ));
+       // menuPane.prefHeightProperty().bind(root.heightProperty().multiply(0.2));
+      //  statusPane.prefHeightProperty().bind(root.heightProperty().multiply(0.2));
+       // panes.prefHeightProperty().bind(main.heightProperty().subtract(100) );
 
 
-        lp.prefWidthProperty().bind(root.widthProperty().multiply(0.4));
-        rp.prefWidthProperty().bind(root.widthProperty().multiply(0.6));
+        lp.prefWidthProperty().bind(panes.widthProperty().multiply(0.2));
+        rp.prefWidthProperty().bind(panes.widthProperty().multiply(0.8));
 
         primaryStage.setOnCloseRequest(e->{
             DbConnection.disconnect();
             Platform.exit();
         });
-        root.requestFocus();
+        main.requestFocus();
 
     }
 }
