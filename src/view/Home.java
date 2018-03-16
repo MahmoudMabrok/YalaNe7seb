@@ -102,7 +102,7 @@ public class Home extends Application  {
 
         //setIcon
         primaryStage.getIcons().add(new Image("reources/cart-1956097_960_720.png")) ;
-        
+
 
     }
 }
