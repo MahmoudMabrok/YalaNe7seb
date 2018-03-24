@@ -27,11 +27,6 @@ public class MenuPane  extends Pane {
                 new SeparatorMenuItem(), exit) ;
 
         Menu helpMenu = new Menu("_Help") ;
-        Dialog dialog = new Alert(Alert.AlertType.INFORMATION);
-        dialog.setHeaderText("Welcome !!! ");
-        DialogPane dpane =dialog.getDialogPane();
-        dpane.getChildren().remove(dpane.getChildren().size()-1);
-
         MenuItem  about = new MenuItem("About") ;
         MenuItem help = new MenuItem("help") ;
         helpMenu.getItems().addAll( about,help ) ;
@@ -45,6 +40,11 @@ public class MenuPane  extends Pane {
 
         main.getMenus().addAll(file  , options, helpMenu) ;
         getChildren().addAll(main) ;
+
+        Dialog dialog = new Alert(Alert.AlertType.INFORMATION);
+        dialog.setHeaderText("Welcome !!! ");
+        DialogPane dpane =dialog.getDialogPane();
+       // dpane.getChildren().remove(dpane.getChildren().size()-1);
 
         //actions
         exit.setAccelerator(KeyCombination.keyCombination("Ctrl+X"));
@@ -98,7 +98,7 @@ public class MenuPane  extends Pane {
         RightPane.tableView.getItems().setAll(DbQueries.getAllItems()) ;
         Home.lp.cbUser.getItems().setAll(DbQueries.getAllUser()) ;
         System.out.println("DbQueries.getAllUser() = " + DbQueries.getAllUser());
-        Home.lp.cbUser.setPromptText("Enter User");
+       // Home.lp.cbUser.setPromptText("Enter User");
         Home.lp.setAllBlank();
 
     }

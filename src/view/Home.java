@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
@@ -98,6 +99,10 @@ public class Home extends Application  {
             Platform.exit();
         });
         main.requestFocus();
+
+        //setIcon
+        primaryStage.getIcons().add(new Image("reources/cart-1956097_960_720.png")) ;
+
 
     }
 }
